@@ -1,0 +1,63 @@
+/*
+ * 仅用于验证 wifi-mainline.dtsi 语法 / label 引用自洽的最小顶层 dts。
+ * 提供该片段依赖的外部 label 桩（scpsys / PMIC / pinctrl / infracfg / clock 宏）。
+ * 真实目标树里这些由「已修好的 WiFi 基线」提供，不需要本文件。
+ * 编译: tools/dts_verify.sh
+ */
+/dts-v1/;
+
+/* 私有栈用到的 infracfg 时钟宏（原厂定义值，仅桩） */
+#define INFRACFG_AO_BTIF_CG   1
+#define INFRACFG_AO_AP_DMA_CG 2
+
+#include "wifi-mainline.dtsi"
+
+/ {
+	model = "MT6893 wifi DT lint stub";
+	compatible = "mediatek,mt6893";
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	interrupt-parent = <&gic>;
+	gic: interrupt-controller {
+		compatible = "arm,gic-v3";
+		#interrupt-cells = <3>;
+		interrupt-controller;
+	};
+
+	/* 以下为 wifi-mainline.dtsi 引用的外部 label 桩 */
+	scpsys: scpsys@10006000 {
+		compatible = "mediatek,mt6893-scpsys", "syscon";
+		reg = <0 0x10006000 0 0x1000>;
+		#clock-cells = <1>;
+	};
+
+	infracfg_ao: infracfg-ao@10001000 {
+		compatible = "mediatek,mt6893-infracfg-ao", "syscon";
+		reg = <0 0x10001000 0 0x1000>;
+		#clock-cells = <1>;
+	};
+
+	main_pmic: mt6359-pmic {
+		compatible = "mediatek,mt6359";
+	};
+
+	mt_pmic_vcn13_ldo_reg: ldo_vcn13 {
+		regulator-name = "vcn13";
+	};
+	mt_pmic_vcn18_ldo_reg: ldo_vcn18 {
+		regulator-name = "vcn18";
+	};
+	mt_pmic_vcn33_1_bt_ldo_reg: ldo_vcn33_1_bt {
+		regulator-name = "vcn33_1_bt";
+	};
+	mt_pmic_vcn33_1_wifi_ldo_reg: ldo_vcn33_1_wifi {
+		regulator-name = "vcn33_1_wifi";
+	};
+	mt_pmic_vcn33_2_wifi_ldo_reg: ldo_vcn33_2_wifi {
+		regulator-name = "vcn33_2_wifi";
+	};
+	pio: pinctrl {
+		compatible = "mediatek,mt6893-pinctrl";
+	};
+};

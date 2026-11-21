@@ -1,0 +1,134 @@
+# ares (Redmi K40 Gaming / MT6893) — 外设驱动配置片段
+# ────────────────────────────────────────────────────────────────
+# 用法：在仓库的 arch/arm64/configs/defconfig（或你自己的 ares_defconfig）
+#       里追加以下内容，然后 `make ARCH=arm64 ares_defconfig` / menuconfig。
+#
+# 原则：只启用 **主线 7.3.3 已存在** 的驱动（A 类，不重复移植）。
+#       下列每个 CONFIG 符号都已在目标 7.3.3 内核树的 Kconfig 中
+#       逐条 grep 确认存在，不引入 4.14 私有符号。
+#
+# 官方 4.14 私有驱动（B 类）不在此处开启——它们主线没有，需先完成
+# 源码移植并新增 Kconfig 条目，见 docs/DRIVER-PORTING.md。
+# ────────────────────────────────────────────────────────────────
+
+# ── SoC 基础设施（仓库已移植，确保打开）──
+CONFIG_ARCH_MEDIATEK=y
+CONFIG_PINCTRL_MT6893=y
+CONFIG_SERIAL_8250=y
+CONFIG_SERIAL_8250_CONSOLE=y
+CONFIG_SERIAL_8250_MT6577=y          # MTK 通用 8250 UART；MT6893 compatible 需补
+CONFIG_SPMI=y
+CONFIG_MTK_PMIC_WRAP=y
+
+# ── PMIC：主 PMIC + 子 PMIC + MT6360（A 类，全部主线已有）──
+CONFIG_MFD_MT6360=y
+CONFIG_REGULATOR_MT6359=y
+CONFIG_REGULATOR_MT6315=y
+CONFIG_REGULATOR_MT6360=y
+CONFIG_CHARGER_MT6360=m
+
+# ── 67W 充电：电荷泵 + 电量计（A 类）──
+# 注意：ares 设备树用 ti,bq2597x-master / ti,bq2597x-slave，
+#       主线 bq25980 驱动的 of_match 需补这两条 compatible（见 DRIVER-PORTING.md）
+CONFIG_CHARGER_BQ25980=m
+CONFIG_BATTERY_BQ27XXX=y
+CONFIG_BATTERY_BQ27XXX_I2C=m
+CONFIG_BATTERY_BQ27XXX_DT_UPDATES_NVM=y
+
+# ── 音频：CS35L41 立体声双功放（A 类，主线已有）──
+CONFIG_SND_SOC_CS35L41=y
+CONFIG_SND_SOC_CS35L41_I2C=m
+CONFIG_REGMAP_I2C=y
+
+# ── USB Type-C / PD 框架（MTK 私有 tcpc 层仍需适配）──
+CONFIG_TYPEC=y
+CONFIG_TYPEC_TCPM=y
+CONFIG_TYPEC_TCPCI=y
+
+# ── 通用框架（B 类重写时会用到）──
+CONFIG_LEDS_CLASS=y
+CONFIG_LEDS_TRIGGERS=y
+CONFIG_INPUT_EVDEV=y
+CONFIG_KEYBOARD_GPIO=y                # 肩键 gamekey 可基于此重写（gpio-keys）
+CONFIG_REGULATOR_FIXED_VOLTAGE=y     # ufs_fixed_vcc / vusb33 / otg_vbus
+CONFIG_NEW_LEDS=y
+
+# ── 设备树 overlay 支持（LK 叠加 dtbo 必需）──
+CONFIG_OF_OVERLAY=y
+
+# ── GPU：Mali-G77 (Valhall) / Panfrost（A 类，主线已有）──────────────
+# 交付 dts 末尾已注入主线格式 GPU 节点（arm,mali-bifrost.yaml 契约），
+# panfrost 的 of_match 已含 arm,mali-valhall-jm，驱动源码无需改动。
+# force_defconfig.py 是直写 .config，Kconfig 的 select 不会自动展开，
+# 故把 DRM_PANFROST 的 select 依赖逐条列出（均已在 7.3.3 Kconfig 确认）。
+# 注意：这只是让 GPU 节点能 probe；真实渲染还需 clk-mt6893 / MT6359
+# regulator / power-domain 绑定，主线目前没有，见 docs/GPU-MAINLINE.md。
+CONFIG_DRM=y
+CONFIG_DRM_SCHED=y
+CONFIG_DRM_GEM_SHMEM_HELPER=y
+CONFIG_DRM_PANFROST=y
+CONFIG_IOMMU_SUPPORT=y
+CONFIG_IOMMU_IO_PGTABLE_LPAE=y
+CONFIG_PM_DEVFREQ=y
+CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND=y
+CONFIG_WANT_DEV_COREDUMP=y
+
+# ── 相机模组 EEPROM：复用主线 at24 / nvmem（不移植原厂驱动）──────────
+# 交付 dts 里 5 个 mediatek,camera_eeprom 节点已追加 "atmel,24c16" fallback，
+# 主线 at24.c 的 of_match 会匹配并接管，暴露 nvmem 设备。原厂驱动是 per-sensor
+# OTP 解析栈，与主线模型不兼容，故不移植；容量可用 DT size 属性覆盖。
+CONFIG_NVMEM=y
+CONFIG_EEPROM_AT24=y
+
+# ── USB host + 外接网络设备（WiFi / 数据网络，全部主线已有）────────────
+# 自带 WiFi（connsys）与蜂窝数据（CCCI/mddriver）是 4.14 私有栈 + 闭源固件
+# + Android HAL，主线 7.3.3 完全没有，不能移植。此处走「外接 USB 设备 +
+# 主线标准驱动」：让 SoC USB 控制器以 host 模式工作，支持 USB WiFi 网卡、
+# USB 4G 上网卡（QMI/MBIM）、USB 以太网、手机 USB 共享网络（RNDIS）。
+# 不改内核源码；外接设备固件与用户态工具需自备，见 docs/USB-NETWORKING.md。
+CONFIG_USB_XHCI_HCD=y
+CONFIG_USB_XHCI_MTK=y
+CONFIG_USB_MTU3=y
+CONFIG_USB_ROLE_SWITCH=y
+CONFIG_USB_USBNET=m
+CONFIG_USB_NET_CDCETHER=m
+CONFIG_USB_NET_CDC_NCM=m
+CONFIG_USB_NET_RNDIS_HOST=m
+CONFIG_USB_NET_CDC_MBIM=m
+CONFIG_USB_NET_QMI_WWAN=m
+CONFIG_USB_NET_AX88179_178A=m
+CONFIG_USB_RTL8152=m
+CONFIG_USB_WDM=m
+CONFIG_USB_SERIAL_WWAN=m
+CONFIG_USB_SERIAL_OPTION=m
+CONFIG_WWAN=m
+
+# 外接 USB WiFi 网卡（cfg80211/mac80211 由 defconfig 默认启用）
+CONFIG_CFG80211=m
+CONFIG_MAC80211=m
+CONFIG_MT76_CORE=m
+CONFIG_MT76_USB=m
+CONFIG_MT7921U=m
+CONFIG_RTL8XXXU=m
+CONFIG_ATH9K_HTC=m
+
+# ── USB gadget / ConfigFS 网络共享（零额外硬件，peripheral 角色用）──────────
+# 主线 7.3.3 的 mtu3 是 Dual Role 控制器；defconfig 默认已带出 USB_GADGET=y /
+# USB_MTU3_DUAL_ROLE=y / EXTCON=y，此处把 ConfigFS 网络功能显式固化。
+# 把 dts 末尾 USB 块的 ARES_USB_ROLE 改成 1 并重编 dtb，即可用一根 USB 线
+# 连 PC，通过 RNDIS / ECM / NCM 共享 PC 网络——不需要买任何外接网卡。
+# 注意：这借的是 PC 的网络，不是本机自带的 WiFi / SIM 卡，见
+# docs/NATIVE-NETWORKING.md。符号类型已在 7.3.3 Kconfig 逐条确认：
+# USB_CONFIGFS_{RNDIS,ECM,NCM} 为 bool，其余为 tristate。
+CONFIG_USB_GADGET=y
+CONFIG_USB_MTU3_DUAL_ROLE=y
+CONFIG_EXTCON=y
+CONFIG_USB_LIBCOMPOSITE=m
+CONFIG_USB_CONFIGFS=m
+CONFIG_USB_CONFIGFS_RNDIS=y
+CONFIG_USB_CONFIGFS_ECM=y
+CONFIG_USB_CONFIGFS_NCM=y
+CONFIG_USB_F_RNDIS=m
+CONFIG_USB_F_ECM=m
+CONFIG_USB_F_NCM=m
+CONFIG_USB_U_ETHER=m

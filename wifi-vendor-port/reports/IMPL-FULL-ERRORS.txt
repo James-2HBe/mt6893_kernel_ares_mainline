@@ -1,0 +1,47 @@
+# 21 个 4.14 私有驱动 全量编译错误
+
+kernel=/workspace/linux-7.3.3
+impl=/workspace/ares-7.3.3/wifi-vendor-port/baseline/impl-adapted
+
+
+## drivers/clk/mediatek/clk-mt6873-pg.c  [CLEAN]  errors=0
+
+## drivers/devfreq/helio-dvfsrc-opp.c  [CLEAN]  errors=0
+
+## drivers/memory/mediatek/emimpu.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/clkbuf_v1/mt6853/mtk_clkbuf_hw.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/clkbuf_v1/mt6873/mtk_clkbuf_hw.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/clkbuf_v1/mt6885/mtk_clkbuf_hw.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_dummy.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_main.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_sys_boost.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/spm/common/mtk_spm_resource_req.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/base/power/spm_v4/mtk_spm_resource_req.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/freqhopping/mtk_freqhopping_drv.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/performance/boost_ctrl/topo_ctrl/topo_ctrl.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/pmic/common/upmu_lbat_service.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/pmic/common/upmu_lbat_service_v2.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/pmic/mt6357/v1/pmic_lp_api.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/pmic/mt6390/v1/pmic.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/power/mt6873/mtk_battery_intf.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/pseudo_m4u/pseudo_m4u.c  [CLEAN]  errors=0
+
+## drivers/misc/mediatek/pseudo_m4u/pseudo_m4u_v2.c  [CLEAN]  errors=0
+
+## drivers/usb/mtu3/mtu3_dr.c  [CLEAN]  errors=0

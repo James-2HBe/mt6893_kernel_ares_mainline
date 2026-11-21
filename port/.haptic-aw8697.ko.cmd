@@ -1,0 +1,1 @@
+savedcmd_haptic-aw8697.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o haptic-aw8697.ko haptic-aw8697.o haptic-aw8697.mod.o .module-common.o

@@ -1,0 +1,372 @@
+--- a/ares_normalized_vvVhvl.dts
++++ b/mt6893-xiaomi-ares-official.dts
+@@ -28,11 +28,32 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/spmi/spmi.h>
+ 
++
++/* ══════════════ 硬件批次选择器（主线 cpp 预处理；改这里即可切换）══════════════
++ * ares 存在多个触控 IC 批次与触觉 IC 挂载总线，官方 4.14 靠 defconfig 二选一；
++ * 主线 dts 没有 defconfig，故用 cpp 宏在编译期消解资源冲突：GPIO20/21 + IRQ21
++ * 只能属于一个触控设备，GPIO129/22 只能属于一个触觉设备。
++ *
++ * 数据依据：MiCode/Xiaomi_Kernel_OpenSource @ ares-r-oss（原厂）
++ *          James-2HBe/kernel_mt6893 @ chopin_kvm（chopin/ares 真机测过）
++ * 默认取「有主线移植驱动」且「原厂 ares-r-oss」的组合：GT9886 + i2c7。
++ * 真机判别：dmesg 看触控 IC 自报 ID / i2c 探测 0x5d 与 0x5a 落在哪条总线。
++ */
++#define ARES_TOUCH_GT9886   1
++#define ARES_TOUCH_FT3658U  2
++#define ARES_TOUCH_GT9896S  3
++#define ARES_TOUCH_VARIANT  ARES_TOUCH_GT9886   /* 按真机批次改这一行 */
++
++#define ARES_HAPTIC_I2C7    1
++#define ARES_HAPTIC_I2C9    2
++#define ARES_HAPTIC_BUS     ARES_HAPTIC_I2C7    /* 原厂 ares-r-oss 用 i2c7 */
++
++
+ / {
+ 	model = "Xiaomi Redmi K40 Gaming (ares)";
+ 	compatible = "xiaomi,ares", "mediatek,mt6893";
+ 	interrupt-parent = <&gic>;
+-	/* 与官方根 dts / chopin 一致：SoC 层 reg 均为 <0 addr 0 size> */
++	/* 与官方根 dts 一致：SoC 层 reg 均为 <0 addr 0 size> */
+ 	#address-cells = <0x02>;
+ 	#size-cells = <0x02>;
+ 
+@@ -192,13 +213,13 @@
+ 	};
+ 
+ 	/* [mmc_fixed_3v3] */
+-	mmc_fixed_3v3: fixedregulator@0 {
++	mmc_fixed_3v3: regulator-0 {
+ 		compatible = "regulator-fixed";
+ 		status = "disabled";
+ 	};
+ 
+ 	/* [mmc_fixed_1v8_io] */
+-	mmc_fixed_1v8_io: fixedregulator@1 {
++	mmc_fixed_1v8_io: regulator-1 {
+ 		compatible = "regulator-fixed";
+ 		status = "disabled";
+ 	};
+@@ -415,7 +436,7 @@
+ 
+ 	/* [mt6360_pmu] */
+ 	mt6360_pmu: mt6360_pmu_dts {
+-		status = "ok";
++		status = "okay";
+ 		mt6360,intr_gpio_num = <3>; /* direct defined GPIO num */
+ 		mt6360,intr_gpio = <&pio 3 0x0>; /* GPIO */
+ 		interrupt-controller;
+@@ -521,7 +542,7 @@
+ 
+ 	/* [mt6360_pmic] */
+ 	mt6360_pmic: mt6360_pmic_dts {
+-		status = "ok";
++		status = "okay";
+ 		interrupt-parent = <&mt6360_pmu>;
+ 		interrupts = <96 0>, <100 0>, <101 0>, <102 0>,
+ 			     <104 0>, <108 0>, <109 0>, <110 0>,
+@@ -708,7 +729,7 @@
+ 
+ 
+ 	/* ══════════ 同 SoC 通用电源 / USB PHY（补 SoC 层悬空引用）══════════
+-	 * 来源：官方 cust_mt6885_msdc.dtsi 语义 + chopin 反编译 DTB 的电气值；
++	 * 来源：官方 cust_mt6885_msdc.dtsi 语义 + 同 SoC 官方 PMIC 电气值；
+ 	 * 按主线 binding 重建，剔除显式 phandle 数值。非 ares 板级假数据。
+ 	 * 电压：ufs_vcc=3.0V vusb33=3.3V otg_vbus=4.43~5.82V（十六进制换算）。
+ 	 */
+@@ -732,12 +753,12 @@
+ 	otg_vbus: usb-otg-vbus-regulator {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "usb-otg-vbus";
+-		regulator-min-microvolt = <4425000>;
+-		regulator-max-microvolt = <5820000>;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
+ 	};
+ 
+ 	tphy: t-phy@11e40000 {
+-		compatible = "mediatek,mt6785-tphy", "mediatek,generic-tphy-v2";
++		compatible = "mediatek,mt6893-tphy", "mediatek,generic-tphy-v2";
+ 		#address-cells = <0x01>;
+ 		#size-cells = <0x01>;
+ 		ranges = <0x0 0x0 0x11e40000 0x1000>;
+@@ -1737,7 +1758,7 @@
+ 	pinctrl-2 = <&fingerprint_reset_low>;
+ 	pinctrl-3 = <&fingerprint_eint_init>;
+ 	interrupt-parent = <&pio>;
+-	interrupts = <15 IRQ_TYPE_EDGE_RISING 15 0>;
++	interrupts = <15 IRQ_TYPE_EDGE_RISING>;
+ 	status = "okay";
+ };
+ 
+@@ -1849,12 +1870,16 @@
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+ 	focaltech@0 {
+-		status = "ok";
+ 		compatible = "focaltech,fts";
++			#if ARES_TOUCH_VARIANT == ARES_TOUCH_FT3658U
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 		reg = <0x0>;
+ 		spi-max-frequency = <6000000>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <21 IRQ_TYPE_EDGE_FALLING 21 0>;
++		interrupts = <21 IRQ_TYPE_EDGE_FALLING>;
+ 		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend", "pmx_ts_release",
+ 						"ft3658u_spi_mode";
+ 		pinctrl-0 = <&ts_int_active &ts_reset_active>;
+@@ -2136,9 +2161,14 @@
+ };
+ 
+ &i2c7 {
+-	status = "ok";
++	status = "okay";
+ 	aw8697_haptic@5a {
+ 		compatible = "awinic,aw8697_haptic";
++			#if ARES_HAPTIC_BUS == ARES_HAPTIC_I2C7
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 			reset-gpios = <&pio 129 0>;	/* 官方 reset-gpio = <&pio 129 0> */
+ 			irq-gpios = <&pio 22 0>;	/* 官方 irq-gpio = <&pio 22 0> */
+ 		reg = <0x5A>;
+@@ -2189,7 +2219,6 @@
+ 		pinctrl-0 = <&aw8697_reset_low>;
+ 		pinctrl-1 = <&aw8697_reset_high>;
+ 		pinctrl-2 = <&aw8697_interrupt>;
+-		status = "ok";
+ 		wf_0 {
+ 			/*CLICK*/
+ 			mtk,effect-id = <0>;
+@@ -2297,7 +2326,7 @@
+ 
+ &i2c9 {
+ 	et7480: et7480@42 {
+-		status = "ok";
++		status = "okay";
+ 		compatible = "mediatek,et7480-audioswitch";
+ 		reg = <0x42>;
+ 		pinctrl-names = "uart_enable", "uart_disable";
+@@ -2350,12 +2379,16 @@
+ 
+ 	gt9886@5d {
+ 		compatible = "goodix,gt9886";
++			#if ARES_TOUCH_VARIANT == ARES_TOUCH_GT9886
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 			reset-gpios = <&pio 20 0x0>;	/* 官方 goodix,reset-gpio = <&pio 20 0x0> */
+ 			irq-gpios = <&pio 21 0x0>;	/* 官方 goodix,irq-gpio = <&pio 21 0x0> */
+ 		reg = <0x5d>;
+-		status = "ok";
+ 		interrupt-parent = <&pio>;
+-		interrupts = <21 IRQ_TYPE_EDGE_FALLING 21 0>;
++		interrupts = <21 IRQ_TYPE_EDGE_FALLING>;
+ 		vtouch-supply = <&mt_pmic_vtp_ldo_reg>;
+ 		goodix,reset-gpio = <&pio 20 0x0>;
+ 		goodix,irq-gpio = <&pio 21 0x0>;
+@@ -2401,6 +2434,11 @@
+ 
+ 	gt9896s@0 {
+ 		compatible = "goodix,gt9896s";
++			#if ARES_TOUCH_VARIANT == ARES_TOUCH_GT9896S
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 		reg = <0>; //Same as CS ID
+ 		spi-max-frequency = <1000000>;
+ 
+@@ -2707,7 +2745,7 @@
+ 
+ /* IRTX GPIO Start */
+ &irtx_pwm {
+-	pwm_ch = <0>;
++	pwm_ch = <3>;
+ 	pinctrl-names = "irtx_gpio_led_default", "irtx_gpio_led_set";
+ 	pinctrl-0 = <&irtx_gpio_led_default>;
+ 	pinctrl-1 = <&irtx_gpio_led_set>;
+@@ -2759,7 +2797,7 @@
+         fpc,gpio_irq = <&pio 15 0>;
+ 	pinctrl-4 = <&fingerprint_spi_cs>;
+ 	interrupt-parent = <&pio>;
+-	interrupts = <15 IRQ_TYPE_EDGE_RISING 15 0>;
++	interrupts = <15 IRQ_TYPE_EDGE_RISING>;
+ 	status = "okay";
+ };
+ 
+@@ -3048,9 +3086,14 @@
+ };
+ 
+ &i2c9 {
+-	status = "ok";
++	status = "okay";
+ 	aw8697_haptic@5a {
+ 		compatible = "awinic,aw8697_haptic";
++			#if ARES_HAPTIC_BUS == ARES_HAPTIC_I2C9
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 		reg = <0x5A>;
+ 		reset-gpio = <&pio 129 0>;
+ 		irq-gpio = <&pio 22 0>;
+@@ -3099,7 +3142,6 @@
+ 		pinctrl-0 = <&aw8697_reset_low>;
+ 		pinctrl-1 = <&aw8697_reset_high>;
+ 		pinctrl-2 = <&aw8697_interrupt>;
+-		status = "ok";
+ 		wf_0 {
+ 			/*CLICK*/
+ 			mtk,effect-id = <0>;
+@@ -3183,10 +3225,20 @@
+ 	};
+ };
+ 
++
++/* [去重] 本块是 i2c7 上 AW8697 的重复叠加定义（另一份见上文，
++ * 带主线标准 *-gpios 契约）；默认不参与编译。数据保留供审计，
++ * 需要改用本批次校准值时把下面的 #if 0 改成 #if 1 即可。 */
++#if 0
+ &i2c7 {
+-	status = "ok";
++	status = "okay";
+ 	aw8697_haptic@5a {
+ 		compatible = "awinic,aw8697_haptic";
++			#if ARES_HAPTIC_BUS == ARES_HAPTIC_I2C7
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 		reg = <0x5A>;
+ 		reset-gpio = <&pio 129 0>;
+ 		irq-gpio = <&pio 22 0>;
+@@ -3235,7 +3287,6 @@
+ 		pinctrl-0 = <&aw8697_reset_low>;
+ 		pinctrl-1 = <&aw8697_reset_high>;
+ 		pinctrl-2 = <&aw8697_interrupt>;
+-		status = "ok";
+ 		wf_0 {
+ 			/*CLICK*/
+ 			mtk,effect-id = <0>;
+@@ -3318,6 +3369,7 @@
+ 		};
+ 	};
+ };
++#endif
+ /* AW8697 Haptic end */
+ 
+ &pio {
+@@ -3343,7 +3395,7 @@
+ 
+ &i2c9 {
+ 	et7480: et7480@42 {
+-		status = "ok";
++		status = "okay";
+ 		compatible = "mediatek,et7480-audioswitch";
+ 		reg = <0x42>;
+ 		pinctrl-names = "uart_enable", "uart_disable";
+@@ -3392,7 +3444,7 @@
+ 		reg = <0x40>;
+ 		reset-gpio = <&pio 30 0>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <31 IRQ_TYPE_LEVEL_LOW 31 0>;
++		interrupts = <31 IRQ_TYPE_LEVEL_LOW>;
+ 		irq-gpio = <&pio 31 0>;
+ 		cirrus,boost-peak-milliamp = <4500>;
+ 		cirrus,boost-ind-nanohenry = <1000>;
+@@ -3410,7 +3462,7 @@
+ 		reg = <0x42>;
+ 		reset-gpio = <&pio 30 0>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <113 IRQ_TYPE_LEVEL_LOW 113 0>;
++		interrupts = <113 IRQ_TYPE_LEVEL_LOW>;
+ 		irq-gpio = <&pio 113 0>;
+ 		cirrus,boost-peak-milliamp = <4500>;
+ 		cirrus,boost-ind-nanohenry = <1000>;
+@@ -3432,7 +3484,7 @@
+ 
+ /*GAMEKEY start*/
+ &gamekey {
+-    status = "ok";
++    status = "okay";
+     key_left = <&pio 111 0x00>;
+     hall_left = <&pio 4 0x00>;
+     key_right = <&pio 112 0x00>;
+@@ -3501,7 +3553,7 @@
+       gpio-irq = <11>;
+       gpio-irq-std = <&pio 11 0x00>;
+       interrupt-parent = <&pio>;
+-      interrupts = <11 IRQ_TYPE_LEVEL_HIGH 11 0>;
++      interrupts = <11 IRQ_TYPE_LEVEL_HIGH>;
+       gpio-rst = <10>;
+       gpio-rst-std = <&pio 10 0x0>;
+  //     st,clkreq_gpio = <&pio 25 0x0>;
+@@ -4235,12 +4287,16 @@
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+ 	focaltech@0 {
+-		status = "ok";
+ 		compatible = "focaltech,fts";
++			#if ARES_TOUCH_VARIANT == ARES_TOUCH_FT3658U
++				status = "okay";
++			#else
++				status = "disabled";
++			#endif
+ 		reg = <0x0>;
+ 		spi-max-frequency = <6000000>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <21 IRQ_TYPE_EDGE_FALLING 21 0>;
++		interrupts = <21 IRQ_TYPE_EDGE_FALLING>;
+ 		pinctrl-names = "pmx_ts_active", "pmx_ts_suspend", "pmx_ts_release",
+ 						"ft3658u_spi_mode";
+ 		pinctrl-0 = <&ts_int_active &ts_reset_active>;
+@@ -4390,11 +4446,11 @@
+ //WL2866D end
+ 
+ &mt6315_6_regulator {
+-	interrupts = <18 IRQ_TYPE_LEVEL_HIGH 1 0>;
++	interrupts = <18 IRQ_TYPE_LEVEL_HIGH>;
+ };
+ 
+ &mt6315_3_regulator {
+-	interrupts = <23 IRQ_TYPE_LEVEL_HIGH 2 0>;
++	interrupts = <23 IRQ_TYPE_LEVEL_HIGH>;
+ };
+ 
+ &tboard_thermistor6 {
+@@ -4710,7 +4766,7 @@
+ 			therm-gpios = <&pio 29 0x00>;	/* mi,connect_therm */
+ 		reg = <0x35>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <110 IRQ_TYPE_EDGE_FALLING 110 0>;
++		interrupts = <110 IRQ_TYPE_EDGE_FALLING>;
+ 		pinctrl-names = "xmusb350_normal", "xmusb350_isp";
+ 		pinctrl-0 = <&xmusb350_rst_normal &xmusb350_sda_normal &xmusb350_scl_normal>;
+ 		pinctrl-1 = <&xmusb350_rst_isp &xmusb350_sda_isp &xmusb350_scl_isp>;
+@@ -4758,7 +4814,7 @@
+ 		compatible = "ti,bq2597x-master";
+ 		reg = <0x65>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <16 IRQ_TYPE_EDGE_FALLING 16 0>;
++		interrupts = <16 IRQ_TYPE_EDGE_FALLING>;
+ 		pinctrl-names = "bq2597x_master_irq";
+ 		pinctrl-0 = <&bq2597x_master_int_default &bq2597x_master_int_suspend>;
+ 
+@@ -4809,7 +4865,7 @@
+ 		compatible = "ti,bq2597x-slave";
+ 		reg = <0x66>;
+ 		interrupt-parent = <&pio>;
+-		interrupts = <19 IRQ_TYPE_EDGE_FALLING 19 0>;
++		interrupts = <19 IRQ_TYPE_EDGE_FALLING>;
+ 		pinctrl-names = "bq2597x_slave_irq";
+ 		pinctrl-0 = <&bq2597x_slave_int_default &bq2597x_slave_int_suspend>;
+ 

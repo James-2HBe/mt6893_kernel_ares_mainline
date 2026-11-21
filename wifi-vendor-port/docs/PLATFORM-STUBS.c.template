@@ -1,0 +1,37 @@
+/* SPDX-License-Identifier: GPL-2.0 */
+/*
+ * PLATFORM-STUBS.c.template — stage-4 已解决，仅保留接线说明。
+ *
+ * 这两个符号在 stage-3 被判为「未开源、需空桩」，stage-4 复核推翻：
+ *   aee_rr_rec_clk : 真实实现在 ram_console/mtk_ram_console.c:1129，
+ *                    见 solution/platform-symbols.c（函数级移植 + EXPORT）。
+ *   buck_set_mode  : MT6335 专用废弃 API，MT6893(MT6359P) 无真实调用，
+ *                    已从链接期符号清单剔除。
+ *
+ * 请直接使用 solution/platform-symbols.c（__weak + EXPORT_SYMBOL_GPL，
+ * 目标树强符号可覆盖）；本文件默认不参与编译，不要与正式实现同时链接。
+ * 详见 docs/UNRESOLVED-SYMBOLS.md / reports/SYMBOL-REFS-CORRECTED.md。
+ */
+
+#if 0  /* stage-4：改用 solution/platform-symbols.c */
+#ifdef CONFIG_MTK_PLATFORM_STUBS
+
+#include <linux/export.h>
+#include <linux/types.h>
+#include <linux/errno.h>
+
+/* extern int buck_set_mode(enum BUCK_TYPE type, unsigned char pmode); */
+int __weak buck_set_mode(int type, unsigned char pmode)
+{
+	return -EOPNOTSUPP;
+}
+EXPORT_SYMBOL_GPL(buck_set_mode);
+
+/* extern void aee_rr_rec_clk(int id, u32 val); */
+void __weak aee_rr_rec_clk(int id, u32 val)
+{
+}
+EXPORT_SYMBOL_GPL(aee_rr_rec_clk);
+
+#endif /* CONFIG_MTK_PLATFORM_STUBS */
+#endif /* 0 */

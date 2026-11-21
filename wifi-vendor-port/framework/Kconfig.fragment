@@ -1,0 +1,44 @@
+# B 类（clk/iommu/devfreq）框架符号接线 —— Kconfig 片段
+# 挂到目标树 drivers/misc/mediatek/ 或统一的 ares 平台 Kconfig 下。
+#
+# 路径 A（推荐，7.3.3 主线框架）：只开本项，不编 framework/vendor/ 下的
+#   4.14 私有 clk/iommu/devfreq 驱动；主线 clk-mtk / mtk-smi / mtk_iommu /
+#   mtk-dvfsrc / mtk-pm-domains 提供同名子系统。
+# 路径 B（目标树确实移植了整套 4.14 私有框架）：同样可开本项，
+#   __weak 定义会被强符号自动覆盖，不产生 multiple definition。
+
+config MTK_FRAMEWORK_SYMBOLS
+	tristate "MT6893 class-B (clk/iommu/devfreq) framework symbol bridge"
+	depends on ARM64
+	default y
+	help
+	  Provides link-time resolution for the 4.14 MediaTek platform symbols
+	  that are strongly coupled with mainline frameworks:
+
+	    register_pg_callback   (clk / power-gating callback chain)
+	    smi_reg_backup_sec     (iommu / SMI register save)
+	    smi_reg_restore_sec    (iommu / SMI register restore)
+	    get_cur_vcore_opp      (devfreq / DVFSRC VCORE OPP)
+
+	  All definitions are __weak + EXPORT_SYMBOL_GPL, so a target tree that
+	  already ships real implementations (path B) takes precedence silently.
+	  aee_rr_rec_clk (the 5th class-B symbol) is provided separately by
+	  solution/platform-symbols.c (stage-4).
+
+	  Source references (all GitHub open source, blob-sha verified):
+	    torvalds/linux@master                     -> framework/upstream/
+	    xiaomi-mt6893-dev/kernel_xiaomi_mt6893   -> framework/vendor/
+	  See docs/CLASS-B-ADAPTATION.md for wiring of the optional bridge
+	  entry points (mtk_pg_notify / mtk_framework_set_vcore_opp / ...).
+
+config MTK_FRAMEWORK_HAVE_PG_H
+	bool "Use vendor clk-mt6873-pg.h types instead of standalone ABI shim"
+	depends on MTK_FRAMEWORK_SYMBOLS
+	default n
+	help
+	  Enable only if the target tree actually puts the 4.14 private
+	  drivers/clk/mediatek/clk-mt6873-pg.h on the include path. When enabled,
+	  framework-symbols.c uses the real 'enum subsys_id' and
+	  'struct pg_callbacks' from that header instead of the minimal ABI
+	  compatible definition in compat/mtk_framework_compat.h.
+	  Both configurations are compile-verified by solution/verify-class-b.sh.

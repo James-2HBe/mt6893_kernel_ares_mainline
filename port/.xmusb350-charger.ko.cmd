@@ -1,0 +1,1 @@
+savedcmd_xmusb350-charger.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o xmusb350-charger.ko xmusb350-charger.o xmusb350-charger.mod.o .module-common.o

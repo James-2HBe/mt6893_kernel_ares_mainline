@@ -1,0 +1,1 @@
+savedcmd_input-gamekey.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o input-gamekey.ko input-gamekey.o input-gamekey.mod.o .module-common.o

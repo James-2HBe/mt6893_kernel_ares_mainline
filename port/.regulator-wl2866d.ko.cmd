@@ -1,0 +1,1 @@
+savedcmd_regulator-wl2866d.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o regulator-wl2866d.ko regulator-wl2866d.o regulator-wl2866d.mod.o .module-common.o

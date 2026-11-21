@@ -1,0 +1,8 @@
+# path	git_blob_sha	bytes	status
+drivers/misc/mediatek/ram_console/mtk_ram_console.c	3416cde20e9aa20560fcbc3d0038737bb3b3f8b5	82400	OK
+drivers/misc/mediatek/ram_console/ram_console.h	b6a4db2eb7c22cb01a7dc3dd57d603d7b1d39e4a	1132	OK
+drivers/misc/mediatek/ram_console/desc/desc_def.h	74a35997a37295c5a834d31653c1730eea304e3b	7076	OK
+drivers/misc/mediatek/ram_console/desc/desc_def_per_cpu.h	938e11ddf0afb579a79922e46748dfd5d6e48e5c	846	OK
+drivers/misc/mediatek/ram_console/desc/desc_s.h	e09f3f1b34abf5789de6a64717394a6be8754481	4316	OK
+drivers/misc/mediatek/ram_console/Kconfig	fc03ba6f824cc9e036b781116f8149042a582fce	244	OK
+drivers/misc/mediatek/ram_console/Makefile	d4ce8875f3c78414198650de1220b22d56319100	496	OK

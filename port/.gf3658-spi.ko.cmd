@@ -1,0 +1,1 @@
+savedcmd_gf3658-spi.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o gf3658-spi.ko gf3658-spi.o gf3658-spi.mod.o .module-common.o

@@ -1,0 +1,710 @@
+# Makefile	Kconfig开关	目标.o	源文件	开关说明
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-fixup-div.o	drivers/clk/mediatek/clk-fixup-div.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-mtk.o	drivers/clk/mediatek/clk-mtk.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-pll.o	drivers/clk/mediatek/clk-pll.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-gate.o	drivers/clk/mediatek/clk-gate.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-apmixed.o	drivers/clk/mediatek/clk-apmixed.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-cpumux.o	drivers/clk/mediatek/clk-cpumux.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MEDIATEK	clk-mux.o	drivers/clk/mediatek/clk-mux.c	
+drivers/clk/mediatek/Makefile	CONFIG_RESET_CONTROLLER	reset.o	drivers/clk/mediatek/reset.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clk-mt6785.o	drivers/clk/mediatek/clk-mt6785.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clk-mt6785-pg.o	drivers/clk/mediatek/clk-mt6785-pg.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clkchk.o	drivers/clk/mediatek/clkchk.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clkdbg-mt6785.o	drivers/clk/mediatek/clkdbg-mt6785.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6785	clkchk-mt6785.o	drivers/clk/mediatek/clkchk-mt6785.c	Clock driver for Mediatek MT6785
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clk-mt6873.o	drivers/clk/mediatek/clk-mt6873.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clk-mt6873-pg.o	drivers/clk/mediatek/clk-mt6873-pg.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clkdbg-mt6873.o	drivers/clk/mediatek/clkdbg-mt6873.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clkchk.o	drivers/clk/mediatek/clkchk.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clkchk-mt6873.o	drivers/clk/mediatek/clkchk-mt6873.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6873	clk-fmeter-mt6873.o	drivers/clk/mediatek/clk-fmeter-mt6873.c	Clock driver for Mediatek MT6873
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clk-mt6885.o	drivers/clk/mediatek/clk-mt6885.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clk-mt6885-pg.o	drivers/clk/mediatek/clk-mt6885-pg.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clkdbg-mt6885.o	drivers/clk/mediatek/clkdbg-mt6885.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clkchk.o	drivers/clk/mediatek/clkchk.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clkchk-mt6885.o	drivers/clk/mediatek/clkchk-mt6885.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6885	clk-fmeter-mt6885.o	drivers/clk/mediatek/clk-fmeter-mt6885.c	Clock driver for Mediatek MT6885
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clk-mt6885.o	drivers/clk/mediatek/clk-mt6885.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clk-mt6885-pg.o	drivers/clk/mediatek/clk-mt6885-pg.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clkdbg.o	drivers/clk/mediatek/clkdbg.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clkdbg-mt6885.o	drivers/clk/mediatek/clkdbg-mt6885.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clkchk.o	drivers/clk/mediatek/clkchk.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clkchk-mt6885.o	drivers/clk/mediatek/clkchk-mt6885.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6893	clk-fmeter-mt6885.o	drivers/clk/mediatek/clk-fmeter-mt6885.c	
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clk-mt6833.o	drivers/clk/mediatek/clk-mt6833.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clk-mt6833-pg.o	drivers/clk/mediatek/clk-mt6833-pg.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clkdbg-mt6833.o	drivers/clk/mediatek/clkdbg-mt6833.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clkchk.o	drivers/clk/mediatek/clkchk.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clkchk-mt6833.o	drivers/clk/mediatek/clkchk-mt6833.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clk-bringup.o	drivers/clk/mediatek/clk-bringup.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833	clk-fmeter-mt6833.o	drivers/clk/mediatek/clk-fmeter-mt6833.c	Clock driver for MediaTek MT6833
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_AUDIO	clk-mt6833-audsys.o	drivers/clk/mediatek/clk-mt6833-audsys.c	Clock driver for MediaTek MT6833 audio
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_CAMSYS_MAIN	clk-mt6833-cam_m.o	drivers/clk/mediatek/clk-mt6833-cam_m.c	Clock driver for MediaTek MT6833 camsys_main
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_CAMSYS_RAWA	clk-mt6833-cam_ra.o	drivers/clk/mediatek/clk-mt6833-cam_ra.c	Clock driver for MediaTek MT6833 camsys_rawa
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_CAMSYS_RAWB	clk-mt6833-cam_rb.o	drivers/clk/mediatek/clk-mt6833-cam_rb.c	Clock driver for MediaTek MT6833 camsys_rawb
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMGSYS1	clk-mt6833-imgsys1.o	drivers/clk/mediatek/clk-mt6833-imgsys1.c	Clock driver for MediaTek MT6833 imgsys1
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMGSYS2	clk-mt6833-imgsys2.o	drivers/clk/mediatek/clk-mt6833-imgsys2.c	Clock driver for MediaTek MT6833 imgsys2
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMP_IIC_WRAP_C	clk-mt6833-impc.o	drivers/clk/mediatek/clk-mt6833-impc.c	Clock driver for MediaTek MT6833 imp_iic_wrap_c
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMP_IIC_WRAP_E	clk-mt6833-impe.o	drivers/clk/mediatek/clk-mt6833-impe.c	Clock driver for MediaTek MT6833 imp_iic_wrap_e
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMP_IIC_WRAP_N	clk-mt6833-impn.o	drivers/clk/mediatek/clk-mt6833-impn.c	Clock driver for MediaTek MT6833 imp_iic_wrap_n
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMP_IIC_WRAP_S	clk-mt6833-imps.o	drivers/clk/mediatek/clk-mt6833-imps.c	Clock driver for MediaTek MT6833 imp_iic_wrap_s
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMP_IIC_WRAP_W	clk-mt6833-impw.o	drivers/clk/mediatek/clk-mt6833-impw.c	Clock driver for MediaTek MT6833 imp_iic_wrap_w
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IMP_IIC_WRAP_WS	clk-mt6833-impws.o	drivers/clk/mediatek/clk-mt6833-impws.c	Clock driver for MediaTek MT6833 imp_iic_wrap_ws
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_IPESYS	clk-mt6833-ipe.o	drivers/clk/mediatek/clk-mt6833-ipe.c	Clock driver for MediaTek MT6833 ipesys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_MDPSYS_CONFIG	clk-mt6833-mdp.o	drivers/clk/mediatek/clk-mt6833-mdp.c	Clock driver for MediaTek MT6833 mdpsys_config
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_MFGSYS	clk-mt6833-mfgcfg.o	drivers/clk/mediatek/clk-mt6833-mfgcfg.c	Clock driver for MediaTek MT6833 mfgsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_MMSYS_CONFIG	clk-mt6833-mm.o	drivers/clk/mediatek/clk-mt6833-mm.c	Clock driver for MediaTek MT6833 mmsys_config
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_VDEC_GCON	clk-mt6833-vdec.o	drivers/clk/mediatek/clk-mt6833-vdec.c	Clock driver for MediaTek MT6833 vdec_gcon
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6833_VENC_GCON	clk-mt6833-venc.o	drivers/clk/mediatek/clk-mt6833-venc.c	Clock driver for MediaTek MT6833 venc_gcon
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6797	clk-mt6797.o	drivers/clk/mediatek/clk-mt6797.c	Clock driver for Mediatek MT6797
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6797_IMGSYS	clk-mt6797-img.o	drivers/clk/mediatek/clk-mt6797-img.c	Clock driver for Mediatek MT6797 imgsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6797_MMSYS	clk-mt6797-mm.o	drivers/clk/mediatek/clk-mt6797-mm.c	Clock driver for Mediatek MT6797 mmsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6797_VDECSYS	clk-mt6797-vdec.o	drivers/clk/mediatek/clk-mt6797-vdec.c	Clock driver for Mediatek MT6797 vdecsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6797_VENCSYS	clk-mt6797-venc.o	drivers/clk/mediatek/clk-mt6797-venc.c	Clock driver for Mediatek MT6797 vencsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701	clk-mt2701.o	drivers/clk/mediatek/clk-mt2701.c	Clock driver for Mediatek MT2701
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701_BDPSYS	clk-mt2701-bdp.o	drivers/clk/mediatek/clk-mt2701-bdp.c	Clock driver for Mediatek MT2701 bdpsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701_ETHSYS	clk-mt2701-eth.o	drivers/clk/mediatek/clk-mt2701-eth.c	Clock driver for Mediatek MT2701 ethsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701_HIFSYS	clk-mt2701-hif.o	drivers/clk/mediatek/clk-mt2701-hif.c	Clock driver for Mediatek MT2701 hifsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701_IMGSYS	clk-mt2701-img.o	drivers/clk/mediatek/clk-mt2701-img.c	Clock driver for Mediatek MT2701 imgsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701_MMSYS	clk-mt2701-mm.o	drivers/clk/mediatek/clk-mt2701-mm.c	Clock driver for Mediatek MT2701 mmsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT2701_VDECSYS	clk-mt2701-vdec.o	drivers/clk/mediatek/clk-mt2701-vdec.c	Clock driver for Mediatek MT2701 vdecsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6771	clk-mt6771.o	drivers/clk/mediatek/clk-mt6771.c	Clock driver for Mediatek MT6771
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6771	clk-mt6771-pg.o	drivers/clk/mediatek/clk-mt6771-pg.c	Clock driver for Mediatek MT6771
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6771	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6771
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6771	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT6771
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	clk-mt6768.o	drivers/clk/mediatek/clk-mt6768.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	clk-mt6768-pg.o	drivers/clk/mediatek/clk-mt6768-pg.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6765	clk-mt6765.o	drivers/clk/mediatek/clk-mt6765.c	Clock driver for Mediatek MT6765
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6765	clk-mt6765-pg.o	drivers/clk/mediatek/clk-mt6765-pg.c	Clock driver for Mediatek MT6765
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6765	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6765
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6765	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT6765
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8135	clk-mt8135.o	drivers/clk/mediatek/clk-mt8135.c	Clock driver for Mediatek MT8135
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8167	clk-mt8167.o	drivers/clk/mediatek/clk-mt8167.c	Clock driver for Mediatek MT8167
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8167	clkchk_mt8167.o	drivers/clk/mediatek/clkchk_mt8167.c	Clock driver for Mediatek MT8167
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8167	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for Mediatek MT8167
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8167	clkdbg_mt8167.o	drivers/clk/mediatek/clkdbg_mt8167.c	Clock driver for Mediatek MT8167
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168	clk-mt8168.o	drivers/clk/mediatek/clk-mt8168.c	Clock driver for MediaTek MT8168
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168	clk-bringup.o	drivers/clk/mediatek/clk-bringup.c	Clock driver for MediaTek MT8168
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for MediaTek MT8168
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168	clkdbg-mt8168.o	drivers/clk/mediatek/clkdbg-mt8168.c	Clock driver for MediaTek MT8168
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168	clkchk-mt8168.o	drivers/clk/mediatek/clkchk-mt8168.c	Clock driver for MediaTek MT8168
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168_APU	clk-mt8168-apu.o	drivers/clk/mediatek/clk-mt8168-apu.c	Clock driver for MediaTek MT8168 apu
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168_CAMSYS	clk-mt8168-cam.o	drivers/clk/mediatek/clk-mt8168-cam.c	Clock driver for MediaTek MT8168 camsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168_MFGCFG	clk-mt8168-mfg.o	drivers/clk/mediatek/clk-mt8168-mfg.c	Clock driver for MediaTek MT8168 mfgcfg
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168_MMSYS	clk-mt8168-mm.o	drivers/clk/mediatek/clk-mt8168-mm.c	Clock driver for MediaTek MT8168 mmsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168_VDECSYS	clk-mt8168-vdec.o	drivers/clk/mediatek/clk-mt8168-vdec.c	Clock driver for MediaTek MT8168 vdecsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8168_VENCSYS	clk-mt8168-venc.o	drivers/clk/mediatek/clk-mt8168-venc.c	Clock driver for MediaTek MT8168 vencsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8173	clk-mt8173.o	drivers/clk/mediatek/clk-mt8173.c	Clock driver for Mediatek MT8173
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183	clk-mt8183.o	drivers/clk/mediatek/clk-mt8183.c	Clock driver for MediaTek MT8183
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183	clk-bringup.o	drivers/clk/mediatek/clk-bringup.c	Clock driver for MediaTek MT8183
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for MediaTek MT8183
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183	clkdbg-mt8183.o	drivers/clk/mediatek/clkdbg-mt8183.c	Clock driver for MediaTek MT8183
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_AUDIOSYS	clk-mt8183-audio.o	drivers/clk/mediatek/clk-mt8183-audio.c	Clock driver for MediaTek MT8183 audiosys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_CAMSYS	clk-mt8183-cam.o	drivers/clk/mediatek/clk-mt8183-cam.c	Clock driver for MediaTek MT8183 camsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_IMGSYS	clk-mt8183-img.o	drivers/clk/mediatek/clk-mt8183-img.c	Clock driver for MediaTek MT8183 imgsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_IPU_CORE0	clk-mt8183-ipu0.o	drivers/clk/mediatek/clk-mt8183-ipu0.c	Clock driver for MediaTek MT8183 ipu_core0
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_IPU_CORE1	clk-mt8183-ipu1.o	drivers/clk/mediatek/clk-mt8183-ipu1.c	Clock driver for MediaTek MT8183 ipu_core1
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_IPU_ADL	clk-mt8183-ipu_adl.o	drivers/clk/mediatek/clk-mt8183-ipu_adl.c	Clock driver for MediaTek MT8183 ipu_adl
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_IPU_CONN	clk-mt8183-ipu_conn.o	drivers/clk/mediatek/clk-mt8183-ipu_conn.c	Clock driver for MediaTek MT8183 ipu_conn
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_MFGCFG	clk-mt8183-mfgcfg.o	drivers/clk/mediatek/clk-mt8183-mfgcfg.c	Clock driver for MediaTek MT8183 mfgcfg
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_MMSYS	clk-mt8183-mm.o	drivers/clk/mediatek/clk-mt8183-mm.c	Clock driver for MediaTek MT8183 mmsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_VDECSYS	clk-mt8183-vdec.o	drivers/clk/mediatek/clk-mt8183-vdec.c	Clock driver for MediaTek MT8183 vdecsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT8183_VENCSYS	clk-mt8183-venc.o	drivers/clk/mediatek/clk-mt8183-venc.c	Clock driver for MediaTek MT8183 vencsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6739	clk-mt6739.o	drivers/clk/mediatek/clk-mt6739.c	Clock driver for Mediatek MT6739
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6739	clk-mt6739-pg.o	drivers/clk/mediatek/clk-mt6739-pg.c	Clock driver for Mediatek MT6739
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6739	mt6739_clkmgr.o	drivers/clk/mediatek/mt6739_clkmgr.c	Clock driver for Mediatek MT6739
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6739	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for Mediatek MT6739
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6739	clk-fixed-factor.o	drivers/clk/mediatek/clk-fixed-factor.c	Clock driver for Mediatek MT6739
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clk-mt6853.o	drivers/clk/mediatek/clk-mt6853.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clk-mt6853-pg.o	drivers/clk/mediatek/clk-mt6853-pg.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clk-mtk-v1.o	drivers/clk/mediatek/clk-mtk-v1.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clkdbg.o	drivers/clk/mediatek/clkdbg.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clkdbg-mt6853.o	drivers/clk/mediatek/clkdbg-mt6853.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clkchk.o	drivers/clk/mediatek/clkchk.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clkchk-mt6853.o	drivers/clk/mediatek/clkchk-mt6853.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clk-bringup.o	drivers/clk/mediatek/clk-bringup.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853	clk-fmeter-mt6853.o	drivers/clk/mediatek/clk-fmeter-mt6853.c	Clock driver for MediaTek MT6853
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_APU0	clk-mt6853-apu0.o	drivers/clk/mediatek/clk-mt6853-apu0.c	Clock driver for MediaTek MT6853 apu0
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_APU1	clk-mt6853-apu1.o	drivers/clk/mediatek/clk-mt6853-apu1.c	Clock driver for MediaTek MT6853 apu1
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_APU_VCORE	clk-mt6853-apuv.o	drivers/clk/mediatek/clk-mt6853-apuv.c	Clock driver for MediaTek MT6853 apu_vcore
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_APU_CONN	clk-mt6853-apuc.o	drivers/clk/mediatek/clk-mt6853-apuc.c	Clock driver for MediaTek MT6853 apu_conn
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_AUDIO	clk-mt6853-audsys.o	drivers/clk/mediatek/clk-mt6853-audsys.c	Clock driver for MediaTek MT6853 audio
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_CAMSYS_MAIN	clk-mt6853-cam_m.o	drivers/clk/mediatek/clk-mt6853-cam_m.c	Clock driver for MediaTek MT6853 camsys_main
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_CAMSYS_RAWA	clk-mt6853-cam_ra.o	drivers/clk/mediatek/clk-mt6853-cam_ra.c	Clock driver for MediaTek MT6853 camsys_rawa
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_CAMSYS_RAWB	clk-mt6853-cam_rb.o	drivers/clk/mediatek/clk-mt6853-cam_rb.c	Clock driver for MediaTek MT6853 camsys_rawb
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMGSYS1	clk-mt6853-imgsys1.o	drivers/clk/mediatek/clk-mt6853-imgsys1.c	Clock driver for MediaTek MT6853 imgsys1
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMGSYS2	clk-mt6853-imgsys2.o	drivers/clk/mediatek/clk-mt6853-imgsys2.c	Clock driver for MediaTek MT6853 imgsys2
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMP_IIC_WRAP_C	clk-mt6853-impc.o	drivers/clk/mediatek/clk-mt6853-impc.c	Clock driver for MediaTek MT6853 imp_iic_wrap_c
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMP_IIC_WRAP_E	clk-mt6853-impe.o	drivers/clk/mediatek/clk-mt6853-impe.c	Clock driver for MediaTek MT6853 imp_iic_wrap_e
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMP_IIC_WRAP_N	clk-mt6853-impn.o	drivers/clk/mediatek/clk-mt6853-impn.c	Clock driver for MediaTek MT6853 imp_iic_wrap_n
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMP_IIC_WRAP_S	clk-mt6853-imps.o	drivers/clk/mediatek/clk-mt6853-imps.c	Clock driver for MediaTek MT6853 imp_iic_wrap_s
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMP_IIC_WRAP_W	clk-mt6853-impw.o	drivers/clk/mediatek/clk-mt6853-impw.c	Clock driver for MediaTek MT6853 imp_iic_wrap_w
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IMP_IIC_WRAP_WS	clk-mt6853-impws.o	drivers/clk/mediatek/clk-mt6853-impws.c	Clock driver for MediaTek MT6853 imp_iic_wrap_ws
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_IPESYS	clk-mt6853-ipe.o	drivers/clk/mediatek/clk-mt6853-ipe.c	Clock driver for MediaTek MT6853 ipesys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_MDPSYS_CONFIG	clk-mt6853-mdp.o	drivers/clk/mediatek/clk-mt6853-mdp.c	Clock driver for MediaTek MT6853 mdpsys_config
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_MFGSYS	clk-mt6853-mfgcfg.o	drivers/clk/mediatek/clk-mt6853-mfgcfg.c	Clock driver for MediaTek MT6853 mfgsys
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_MMSYS_CONFIG	clk-mt6853-mm.o	drivers/clk/mediatek/clk-mt6853-mm.c	Clock driver for MediaTek MT6853 mmsys_config
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_SCP	clk-mt6853-scp_par.o	drivers/clk/mediatek/clk-mt6853-scp_par.c	Clock driver for MediaTek MT6853 scp
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_VDEC_GCON	clk-mt6853-vdec.o	drivers/clk/mediatek/clk-mt6853-vdec.c	Clock driver for MediaTek MT6853 vdec_gcon
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6853_VENC_GCON	clk-mt6853-venc.o	drivers/clk/mediatek/clk-mt6853-venc.c	Clock driver for MediaTek MT6853 venc_gcon
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	clkchk-mt6768.o	drivers/clk/mediatek/clkchk-mt6768.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	clkdbg-mt6768.o	drivers/clk/mediatek/clkdbg-mt6768.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6768	mt6768_clkmgr.o	drivers/clk/mediatek/mt6768_clkmgr.c	Clock driver for Mediatek MT6768
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6765	clkdbg_mt6765.o	drivers/clk/mediatek/clkdbg_mt6765.c	Clock driver for Mediatek MT6765
+drivers/clk/mediatek/Makefile	CONFIG_COMMON_CLK_MT6765	clkchk-mt6765.o	drivers/clk/mediatek/clkchk-mt6765.c	Clock driver for Mediatek MT6765
+drivers/devfreq/Makefile	CONFIG_PM_DEVFREQ	devfreq.o	drivers/devfreq/devfreq.c	
+drivers/devfreq/Makefile	CONFIG_PM_DEVFREQ_EVENT	devfreq-event.o	drivers/devfreq/devfreq-event.c	
+drivers/devfreq/Makefile	CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND	governor_simpleondemand.o	drivers/devfreq/governor_simpleondemand.c	Simple Ondemand
+drivers/devfreq/Makefile	CONFIG_DEVFREQ_GOV_PERFORMANCE	governor_performance.o	drivers/devfreq/governor_performance.c	Performance
+drivers/devfreq/Makefile	CONFIG_DEVFREQ_GOV_POWERSAVE	governor_powersave.o	drivers/devfreq/governor_powersave.c	Powersave
+drivers/devfreq/Makefile	CONFIG_DEVFREQ_GOV_USERSPACE	governor_userspace.o	drivers/devfreq/governor_userspace.c	Userspace
+drivers/devfreq/Makefile	CONFIG_DEVFREQ_GOV_PASSIVE	governor_passive.o	drivers/devfreq/governor_passive.c	Passive
+drivers/devfreq/Makefile	CONFIG_ARM_EXYNOS_BUS_DEVFREQ	exynos-bus.o	drivers/devfreq/exynos-bus.c	ARM EXYNOS Generic Memory Bus DEVFREQ Driver
+drivers/devfreq/Makefile	CONFIG_ARM_RK3399_DMC_DEVFREQ	rk3399_dmc.o	drivers/devfreq/rk3399_dmc.c	ARM RK3399 DMC DEVFREQ Driver
+drivers/devfreq/Makefile	CONFIG_ARM_TEGRA_DEVFREQ	tegra-devfreq.o	drivers/devfreq/tegra-devfreq.c	Tegra DEVFREQ Driver
+drivers/devfreq/Makefile	CONFIG_MACH_MT6771	helio-dvfsrc.o	drivers/devfreq/helio-dvfsrc.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6771	helio-dvfsrc-sysfs.o	drivers/devfreq/helio-dvfsrc-sysfs.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6771	helio-dvfsrc-mt6771.o	drivers/devfreq/helio-dvfsrc-mt6771.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6768	helio-dvfsrc-ipi.o	drivers/devfreq/helio-dvfsrc-ipi.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6768	helio-dvfsrc-v2/helio-dvfsrc.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6768	helio-dvfsrc-v2/helio-dvfsrc-mt6768.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-mt6768.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6768	helio-dvfsrc-v2/helio-dvfsrc-opp-mt6768.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-opp-mt6768.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6768	helio-dvfsrc-v2/helio-dvfsrc-opp.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-opp.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6768	helio-dvfsrc-v2/helio-dvfsrc-sysfs.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-sysfs.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6765	helio-dvfsrc-ipi.o	drivers/devfreq/helio-dvfsrc-ipi.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6765	helio-dvfsrc-v2/helio-dvfsrc.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6765	helio-dvfsrc-v2/helio-dvfsrc-mt6765.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-mt6765.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6765	helio-dvfsrc-v2/helio-dvfsrc-opp-mt6765.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-opp-mt6765.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6765	helio-dvfsrc-v2/helio-dvfsrc-opp.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-opp.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6765	helio-dvfsrc-v2/helio-dvfsrc-sysfs.o	drivers/devfreq/helio-dvfsrc-v2/helio-dvfsrc-sysfs.c	
+drivers/devfreq/Makefile	CONFIG_MACH_MT6771	helio-dvfsrc-opp-mt6771.o	drivers/devfreq/helio-dvfsrc-opp-mt6771.c	
+drivers/devfreq/event/Makefile	CONFIG_DEVFREQ_EVENT_EXYNOS_NOCP	exynos-nocp.o	drivers/devfreq/event/exynos-nocp.c	EXYNOS NoC (Network On Chip) Probe DEVFREQ event Driver
+drivers/devfreq/event/Makefile	CONFIG_DEVFREQ_EVENT_EXYNOS_PPMU	exynos-ppmu.o	drivers/devfreq/event/exynos-ppmu.c	EXYNOS PPMU (Platform Performance Monitoring Unit) DEVFREQ event Driver
+drivers/devfreq/event/Makefile	CONFIG_DEVFREQ_EVENT_ROCKCHIP_DFI	rockchip-dfi.o	drivers/devfreq/event/rockchip-dfi.c	ROCKCHIP DFI DEVFREQ event Driver
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6785	helio-dvfsrc-opp-mt6785.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6785.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6785	helio-dvfsrc-mt6785.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6785.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6785	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6885	helio-dvfsrc-opp-mt6885.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6885.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6885	helio-dvfsrc-mt6885.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6885.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6885	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6885	helio-dvfsrc-smc-control.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-smc-control.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6873	helio-dvfsrc-opp-mt6873.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6873.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6873	helio-dvfsrc-mt6873.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6873.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6873	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6873	helio-dvfsrc-smc-control.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-smc-control.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MTK_DVFSRC_MT6833_PRETEST	helio-dvfsrc-opp-mt6833.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6833.c	MTK_DVFSRC_MT6833_PRETEST
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MTK_DVFSRC_MT6833_PRETEST	helio-dvfsrc-mt6833.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6833.c	MTK_DVFSRC_MT6833_PRETEST
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MTK_DVFSRC_MT6833_PRETEST	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	MTK_DVFSRC_MT6833_PRETEST
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MTK_DVFSRC_MT6833_PRETEST	helio-dvfsrc-smc-control.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-smc-control.c	MTK_DVFSRC_MT6833_PRETEST
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6853	helio-dvfsrc-opp-mt6853.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6853.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6853	helio-dvfsrc-mt6853.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6853.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6853	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6853	helio-dvfsrc-smc-control.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-smc-control.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6893	helio-dvfsrc-opp-mt6893.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6893.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6893	helio-dvfsrc-mt6893.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6893.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6893	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6893	helio-dvfsrc-smc-control.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-smc-control.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6833	helio-dvfsrc-opp-mt6833.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp-mt6833.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6833	helio-dvfsrc-mt6833.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-mt6833.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6833	helio-dvfsrc-ip-v2.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-ip-v2.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	CONFIG_MACH_MT6833	helio-dvfsrc-smc-control.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-smc-control.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	obj-y	helio-dvfsrc-qos.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-qos.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	obj-y	helio-dvfsrc-sysfs.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-sysfs.c	
+drivers/devfreq/helio-dvfsrc-v3/Makefile	obj-y	helio-dvfsrc-opp.o	drivers/devfreq/helio-dvfsrc-v3/helio-dvfsrc-opp.c	
+drivers/devfreq/helio-dvfsrc-v4/Makefile	CONFIG_MACH_MT8168	helio-dvfsrc-opp.o	drivers/devfreq/helio-dvfsrc-v4/helio-dvfsrc-opp.c	
+drivers/devfreq/helio-dvfsrc-v4/Makefile	CONFIG_MACH_MT8168	helio-dvfsrc-sysfs.o	drivers/devfreq/helio-dvfsrc-v4/helio-dvfsrc-sysfs.c	
+drivers/devfreq/helio-dvfsrc-v4/Makefile	CONFIG_MACH_MT8168	helio-dvfsrc.o	drivers/devfreq/helio-dvfsrc-v4/helio-dvfsrc.c	
+drivers/devfreq/helio-dvfsrc-v4/Makefile	CONFIG_MACH_MT8168	helio-dvfsrc-mt8168.o	drivers/devfreq/helio-dvfsrc-v4/helio-dvfsrc-mt8168.c	
+drivers/iommu/Makefile	CONFIG_IOMMU_API	iommu.o	drivers/iommu/iommu.c	
+drivers/iommu/Makefile	CONFIG_IOMMU_API	iommu-traces.o	drivers/iommu/iommu-traces.c	
+drivers/iommu/Makefile	CONFIG_IOMMU_API	iommu-sysfs.o	drivers/iommu/iommu-sysfs.c	
+drivers/iommu/Makefile	CONFIG_IOMMU_DMA	dma-iommu.o	drivers/iommu/dma-iommu.c	
+drivers/iommu/Makefile	CONFIG_IOMMU_IO_PGTABLE	io-pgtable.o	drivers/iommu/io-pgtable.c	
+drivers/iommu/Makefile	CONFIG_IOMMU_IO_PGTABLE_ARMV7S	io-pgtable-arm-v7s.o	drivers/iommu/io-pgtable-arm-v7s.c	ARMv7/v8 Short Descriptor Format
+drivers/iommu/Makefile	CONFIG_IOMMU_IO_PGTABLE_LPAE	io-pgtable-arm.o	drivers/iommu/io-pgtable-arm.c	ARMv7/v8 Long Descriptor Format
+drivers/iommu/Makefile	CONFIG_IOMMU_IOVA	iova.o	drivers/iommu/iova.c	
+drivers/iommu/Makefile	CONFIG_OF_IOMMU	of_iommu.o	drivers/iommu/of_iommu.c	
+drivers/iommu/Makefile	CONFIG_MSM_IOMMU	msm_iommu.o	drivers/iommu/msm_iommu.c	MSM IOMMU Support
+drivers/iommu/Makefile	CONFIG_AMD_IOMMU	amd_iommu.o	drivers/iommu/amd_iommu.c	AMD IOMMU support
+drivers/iommu/Makefile	CONFIG_AMD_IOMMU	amd_iommu_init.o	drivers/iommu/amd_iommu_init.c	AMD IOMMU support
+drivers/iommu/Makefile	CONFIG_AMD_IOMMU_V2	amd_iommu_v2.o	drivers/iommu/amd_iommu_v2.c	AMD IOMMU Version 2 driver
+drivers/iommu/Makefile	CONFIG_ARM_SMMU	arm-smmu.o	drivers/iommu/arm-smmu.c	ARM Ltd. System MMU (SMMU) Support
+drivers/iommu/Makefile	CONFIG_ARM_SMMU_V3	arm-smmu-v3.o	drivers/iommu/arm-smmu-v3.c	ARM Ltd. System MMU Version 3 (SMMUv3) Support
+drivers/iommu/Makefile	CONFIG_DMAR_TABLE	dmar.o	drivers/iommu/dmar.c	
+drivers/iommu/Makefile	CONFIG_INTEL_IOMMU	intel-iommu.o	drivers/iommu/intel-iommu.c	Support for Intel IOMMU using DMA Remapping Devices
+drivers/iommu/Makefile	CONFIG_INTEL_IOMMU_SVM	intel-svm.o	drivers/iommu/intel-svm.c	Support for Shared Virtual Memory with Intel IOMMU
+drivers/iommu/Makefile	CONFIG_IPMMU_VMSA	ipmmu-vmsa.o	drivers/iommu/ipmmu-vmsa.c	Renesas VMSA-compatible IPMMU
+drivers/iommu/Makefile	CONFIG_IRQ_REMAP	intel_irq_remapping.o	drivers/iommu/intel_irq_remapping.c	Support for Interrupt Remapping
+drivers/iommu/Makefile	CONFIG_IRQ_REMAP	irq_remapping.o	drivers/iommu/irq_remapping.c	Support for Interrupt Remapping
+drivers/iommu/Makefile	CONFIG_MTK_IOMMU	mtk_iommu.o	drivers/iommu/mtk_iommu.c	MTK IOMMU Support
+drivers/iommu/Makefile	CONFIG_MTK_IOMMU_V1	mtk_iommu_v1.o	drivers/iommu/mtk_iommu_v1.c	MTK IOMMU Version 1 (M4U gen1) Support
+drivers/iommu/Makefile	CONFIG_MTK_IOMMU_V2	mtk_iommu_v2.o	drivers/iommu/mtk_iommu_v2.c	MTK IOMMU Version 2
+drivers/iommu/Makefile	CONFIG_MTK_IOMMU_V2	mtk_iommu_ext.o	drivers/iommu/mtk_iommu_ext.c	MTK IOMMU Version 2
+drivers/iommu/Makefile	CONFIG_OMAP_IOMMU	omap-iommu.o	drivers/iommu/omap-iommu.c	OMAP IOMMU Support
+drivers/iommu/Makefile	CONFIG_OMAP_IOMMU_DEBUG	omap-iommu-debug.o	drivers/iommu/omap-iommu-debug.c	Export OMAP IOMMU internals in DebugFS
+drivers/iommu/Makefile	CONFIG_ROCKCHIP_IOMMU	rockchip-iommu.o	drivers/iommu/rockchip-iommu.c	Rockchip IOMMU Support
+drivers/iommu/Makefile	CONFIG_TEGRA_IOMMU_GART	tegra-gart.o	drivers/iommu/tegra-gart.c	Tegra GART IOMMU Support
+drivers/iommu/Makefile	CONFIG_TEGRA_IOMMU_SMMU	tegra-smmu.o	drivers/iommu/tegra-smmu.c	NVIDIA Tegra SMMU Support
+drivers/iommu/Makefile	CONFIG_EXYNOS_IOMMU	exynos-iommu.o	drivers/iommu/exynos-iommu.c	Exynos IOMMU Support
+drivers/iommu/Makefile	CONFIG_FSL_PAMU	fsl_pamu.o	drivers/iommu/fsl_pamu.c	Freescale IOMMU support
+drivers/iommu/Makefile	CONFIG_FSL_PAMU	fsl_pamu_domain.o	drivers/iommu/fsl_pamu_domain.c	Freescale IOMMU support
+drivers/iommu/Makefile	CONFIG_S390_IOMMU	s390-iommu.o	drivers/iommu/s390-iommu.c	
+drivers/iommu/Makefile	CONFIG_QCOM_IOMMU	qcom_iommu.o	drivers/iommu/qcom_iommu.c	Qualcomm IOMMU Support
+drivers/misc/mediatek/base/power/brisket_v1/mt6885/Makefile	obj-y	mtk_brisket.o	drivers/misc/mediatek/base/power/brisket_v1/mt6885/mtk_brisket.c	
+drivers/misc/mediatek/base/power/clkbuf_v1/Makefile	obj-y	mtk_clkbuf_ctl.o	drivers/misc/mediatek/base/power/clkbuf_v1/mtk_clkbuf_ctl.c	
+drivers/misc/mediatek/base/power/clkbuf_v1/mt6885/Makefile	obj-y	mtk_clkbuf_hw.o	drivers/misc/mediatek/base/power/clkbuf_v1/mt6885/mtk_clkbuf_hw.c	
+drivers/misc/mediatek/base/power/cm_mgr_v1/Makefile	obj-y	mtk_cm_mgr.o	drivers/misc/mediatek/base/power/cm_mgr_v1/mtk_cm_mgr.c	
+drivers/misc/mediatek/base/power/cm_mgr_v1/Makefile	obj-y	mtk_cm_mgr_mt8168.o	drivers/misc/mediatek/base/power/cm_mgr_v1/mtk_cm_mgr_mt8168.c	
+drivers/misc/mediatek/base/power/cm_mgr_v1/mt6885/Makefile	obj-y	mtk_cm_mgr_platform.o	drivers/misc/mediatek/base/power/cm_mgr_v1/mt6885/mtk_cm_mgr_platform.c	
+drivers/misc/mediatek/base/power/cm_mgr_v1/mt6893/Makefile	obj-y	mtk_cm_mgr_platform.o	drivers/misc/mediatek/base/power/cm_mgr_v1/mt6893/mtk_cm_mgr_platform.c	
+drivers/misc/mediatek/base/power/cpufreq_v1/src/Makefile	obj-y	mtk_cpufreq_interface.o	drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_interface.c	
+drivers/misc/mediatek/base/power/cpufreq_v1/src/Makefile	obj-y	mtk_cpufreq_api.o	drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_api.c	
+drivers/misc/mediatek/base/power/cpufreq_v1/src/Makefile	obj-y	mtk_cpufreq_debug.o	drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_debug.c	
+drivers/misc/mediatek/base/power/cpufreq_v1/src/Makefile	obj-y	mtk_cpufreq_hybrid.o	drivers/misc/mediatek/base/power/cpufreq_v1/src/mtk_cpufreq_hybrid.c	
+drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6885/Makefile	obj-y	mtk_cpufreq_platform.o	drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6885/mtk_cpufreq_platform.c	
+drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6893/Makefile	obj-y	mtk_cpufreq_platform.o	drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6893/mtk_cpufreq_platform.c	
+drivers/misc/mediatek/base/power/cpufreq_v2/src/Makefile	obj-y	mtk_cpufreq_interface.o	drivers/misc/mediatek/base/power/cpufreq_v2/src/mtk_cpufreq_interface.c	
+drivers/misc/mediatek/base/power/cpufreq_v2/src/Makefile	obj-y	mtk_cpufreq_api.o	drivers/misc/mediatek/base/power/cpufreq_v2/src/mtk_cpufreq_api.c	
+drivers/misc/mediatek/base/power/cpufreq_v2/src/Makefile	obj-y	mtk_cpufreq_debug.o	drivers/misc/mediatek/base/power/cpufreq_v2/src/mtk_cpufreq_debug.c	
+drivers/misc/mediatek/base/power/cpufreq_v2/src/Makefile	obj-y	mtk_cpufreq_hybrid.o	drivers/misc/mediatek/base/power/cpufreq_v2/src/mtk_cpufreq_hybrid.c	
+drivers/misc/mediatek/base/power/cpuhotplug/Makefile	CONFIG_MACH_MT6771	mtk_cpuhp_mt6771.o	drivers/misc/mediatek/base/power/cpuhotplug/mtk_cpuhp_mt6771.c	
+drivers/misc/mediatek/base/power/cpuhotplug/Makefile	CONFIG_MACH_MT6775	mtk_cpuhp_mt6771.o	drivers/misc/mediatek/base/power/cpuhotplug/mtk_cpuhp_mt6771.c	
+drivers/misc/mediatek/base/power/cpuhotplug/Makefile	obj-y	mtk_cpuhp_core.o	drivers/misc/mediatek/base/power/cpuhotplug/mtk_cpuhp_core.c	
+drivers/misc/mediatek/base/power/cpuhotplug/Makefile	obj-y	mtk_cpuhp_ppm.o	drivers/misc/mediatek/base/power/cpuhotplug/mtk_cpuhp_ppm.c	
+drivers/misc/mediatek/base/power/cpuhotplug/Makefile	obj-y	mtk_cpuhp_platform.o	drivers/misc/mediatek/base/power/cpuhotplug/mtk_cpuhp_platform.c	
+drivers/misc/mediatek/base/power/cpuidle_v3/Makefile	obj-y	mtk_cpuidle.o	drivers/misc/mediatek/base/power/cpuidle_v3/mtk_cpuidle.c	
+drivers/misc/mediatek/base/power/cpumssv_v1/mt6885/Makefile	obj-y	mtk_mssv.o	drivers/misc/mediatek/base/power/cpumssv_v1/mt6885/mtk_mssv.c	
+drivers/misc/mediatek/base/power/cpumssv_v1/mt6893/Makefile	obj-y	mtk_mssv.o	drivers/misc/mediatek/base/power/cpumssv_v1/mt6893/mtk_mssv.c	
+drivers/misc/mediatek/base/power/credit_didt_v1/mt6885/Makefile	obj-y	mtk_credit_didt.o	drivers/misc/mediatek/base/power/credit_didt_v1/mt6885/mtk_credit_didt.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6739	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6768	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6885	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6873	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6853	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6765	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6893	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT8168	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/Makefile	CONFIG_MACH_MT6833	mtk_dcm.o	drivers/misc/mediatek/base/power/dcm_v1/mtk_dcm.c	
+drivers/misc/mediatek/base/power/dcm_v1/mt6885/Makefile	obj-y	mtk_dcm_autogen.o	drivers/misc/mediatek/base/power/dcm_v1/mt6885/mtk_dcm_autogen.c	
+drivers/misc/mediatek/base/power/dcm_v1/mt6885/Makefile	obj-y	mtk_dcm_internal.o	drivers/misc/mediatek/base/power/dcm_v1/mt6885/mtk_dcm_internal.c	
+drivers/misc/mediatek/base/power/dcm_v1/mt6893/Makefile	obj-y	mtk_dcm_autogen.o	drivers/misc/mediatek/base/power/dcm_v1/mt6893/mtk_dcm_autogen.c	
+drivers/misc/mediatek/base/power/dcm_v1/mt6893/Makefile	obj-y	mtk_dcm_internal.o	drivers/misc/mediatek/base/power/dcm_v1/mt6893/mtk_dcm_internal.c	
+drivers/misc/mediatek/base/power/dvfsrc/Makefile	obj-y	dvfsrc-boost-driver.o	drivers/misc/mediatek/base/power/dvfsrc/dvfsrc-boost-driver.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6885/Makefile	obj-y	mtk_eem.o	drivers/misc/mediatek/base/power/eem_v2/mt6885/mtk_eem.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6885/Makefile	obj-y	mtk_eem_platform.o	drivers/misc/mediatek/base/power/eem_v2/mt6885/mtk_eem_platform.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6885/Makefile	obj-y	mtk_eem_internal.o	drivers/misc/mediatek/base/power/eem_v2/mt6885/mtk_eem_internal.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6885/Makefile	obj-y	mtk_eem_api.o	drivers/misc/mediatek/base/power/eem_v2/mt6885/mtk_eem_api.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6885/Makefile	obj-y	mtk_picachu.o	drivers/misc/mediatek/base/power/eem_v2/mt6885/mtk_picachu.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6893/Makefile	obj-y	mtk_eem.o	drivers/misc/mediatek/base/power/eem_v2/mt6893/mtk_eem.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6893/Makefile	obj-y	mtk_eem_platform.o	drivers/misc/mediatek/base/power/eem_v2/mt6893/mtk_eem_platform.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6893/Makefile	obj-y	mtk_eem_internal.o	drivers/misc/mediatek/base/power/eem_v2/mt6893/mtk_eem_internal.c	
+drivers/misc/mediatek/base/power/eem_v2/mt6893/Makefile	obj-y	mtk_eem_api.o	drivers/misc/mediatek/base/power/eem_v2/mt6893/mtk_eem_api.c	
+drivers/misc/mediatek/base/power/eemgpu_v2/mt6885/Makefile	obj-y	mtk_eemgpu.o	drivers/misc/mediatek/base/power/eemgpu_v2/mt6885/mtk_eemgpu.c	
+drivers/misc/mediatek/base/power/eemgpu_v2/mt6885/Makefile	obj-y	mtk_eemgpu_platform.o	drivers/misc/mediatek/base/power/eemgpu_v2/mt6885/mtk_eemgpu_platform.c	
+drivers/misc/mediatek/base/power/eemgpu_v2/mt6885/Makefile	obj-y	mtk_eemgpu_internal.o	drivers/misc/mediatek/base/power/eemgpu_v2/mt6885/mtk_eemgpu_internal.c	
+drivers/misc/mediatek/base/power/eemgpu_v2/mt6893/Makefile	obj-y	mtk_eemgpu.o	drivers/misc/mediatek/base/power/eemgpu_v2/mt6893/mtk_eemgpu.c	
+drivers/misc/mediatek/base/power/eemgpu_v2/mt6893/Makefile	obj-y	mtk_eemgpu_platform.o	drivers/misc/mediatek/base/power/eemgpu_v2/mt6893/mtk_eemgpu_platform.c	
+drivers/misc/mediatek/base/power/eemgpu_v2/mt6893/Makefile	obj-y	mtk_eemgpu_internal.o	drivers/misc/mediatek/base/power/eemgpu_v2/mt6893/mtk_eemgpu_internal.c	
+drivers/misc/mediatek/base/power/gpufreq_v1/Makefile	obj-y	mtk_gpufreq_common.o	drivers/misc/mediatek/base/power/gpufreq_v1/mtk_gpufreq_common.c	
+drivers/misc/mediatek/base/power/gpufreq_v1/mt6885/Makefile	obj-y	mtk_gpufreq_plat.o	drivers/misc/mediatek/base/power/gpufreq_v1/mt6885/mtk_gpufreq_plat.c	
+drivers/misc/mediatek/base/power/gpufreq_v1/mt6893/Makefile	obj-y	mtk_gpufreq_plat.o	drivers/misc/mediatek/base/power/gpufreq_v1/mt6893/mtk_gpufreq_plat.c	
+drivers/misc/mediatek/base/power/hps_v1/Makefile	obj-y	mt_hotplug_strategy_main.o	drivers/misc/mediatek/base/power/hps_v1/mt_hotplug_strategy_main.c	
+drivers/misc/mediatek/base/power/hps_v1/Makefile	obj-y	mt_hotplug_strategy_core.o	drivers/misc/mediatek/base/power/hps_v1/mt_hotplug_strategy_core.c	
+drivers/misc/mediatek/base/power/hps_v1/Makefile	obj-y	mt_hotplug_strategy_procfs.o	drivers/misc/mediatek/base/power/hps_v1/mt_hotplug_strategy_procfs.c	
+drivers/misc/mediatek/base/power/hps_v1/Makefile	obj-y	mt_hotplug_strategy_cpu.o	drivers/misc/mediatek/base/power/hps_v1/mt_hotplug_strategy_cpu.c	
+drivers/misc/mediatek/base/power/hps_v1/Makefile	obj-y	mt_hotplug_strategy_api.o	drivers/misc/mediatek/base/power/hps_v1/mt_hotplug_strategy_api.c	
+drivers/misc/mediatek/base/power/hps_v1/Makefile	obj-y	mt_hotplug_strategy_algo.o	drivers/misc/mediatek/base/power/hps_v1/mt_hotplug_strategy_algo.c	
+drivers/misc/mediatek/base/power/koro/mt6885/Makefile	obj-y	mtk_koro.o	drivers/misc/mediatek/base/power/koro/mt6885/mtk_koro.c	
+drivers/misc/mediatek/base/power/koro/mt6893/Makefile	obj-y	mtk_koro.o	drivers/misc/mediatek/base/power/koro/mt6893/mtk_koro.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6759	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6759	mtk_static_power_mt6759.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6759.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6763	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6763	mtk_static_power_mt6763.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6763.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6758	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6758	mtk_static_power_mt6758.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6758.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6739	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6739	mtk_static_power_mt6739.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6739.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6765	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6765	mtk_static_power_mt6765.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6765.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6771	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6771	mtk_static_power_mt6771.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6771.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6775	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6775	mtk_static_power_mt6775.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6775.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6768	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6768	mtk_static_power_mt6768.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6768.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6785	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6785	mtk_static_power_mt6785.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6785.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6885	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6893	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6893	mtk_static_power_mt6893.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6893.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6873	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6873	mtk_static_power_mt6873.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6873.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6853	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6853	mtk_static_power_mt6853.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6853.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6833	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT6833	mtk_static_power_mt6833.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6833.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT8168	mtk_static_power.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	CONFIG_MACH_MT8168	mtk_static_power_mt8168.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt8168.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	obj-y	mtk_static_power_mt6885.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6885.c	
+drivers/misc/mediatek/base/power/leakage_table_v2/Makefile	obj-y	mtk_static_power_mt6893.o	drivers/misc/mediatek/base/power/leakage_table_v2/mtk_static_power_mt6893.c	
+drivers/misc/mediatek/base/power/mcdi/Makefile	obj-y	mtk_mcdi_governor.o	drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_governor.c	
+drivers/misc/mediatek/base/power/mcdi/Makefile	obj-y	mtk_mcdi_governor_lib.o	drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_governor_lib.c	
+drivers/misc/mediatek/base/power/mcdi/Makefile	obj-y	mtk_mcdi_governor_hint.o	drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_governor_hint.c	
+drivers/misc/mediatek/base/power/mcdi/Makefile	obj-y	mtk_mcdi_api.o	drivers/misc/mediatek/base/power/mcdi/mtk_mcdi_api.c	
+drivers/misc/mediatek/base/power/mcdi/mcdi_v1/Makefile	obj-y	mtk_mcdi_main.o	drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_main.c	
+drivers/misc/mediatek/base/power/mcdi/mcdi_v1/Makefile	obj-y	mtk_mcdi_util.o	drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_util.c	
+drivers/misc/mediatek/base/power/mcdi/mcdi_v1/Makefile	obj-y	mtk_mcdi_profile.o	drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_profile.c	
+drivers/misc/mediatek/base/power/mcdi/mcdi_v1/Makefile	obj-y	mtk_mcdi_cpc.o	drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_cpc.c	
+drivers/misc/mediatek/base/power/mcdi/mcdi_v1/Makefile	obj-y	mtk_mcdi_mcupm.o	drivers/misc/mediatek/base/power/mcdi/mcdi_v1/mtk_mcdi_mcupm.c	
+drivers/misc/mediatek/base/power/mcdi/mt6885/Makefile	obj-y	mtk_mcdi_plat.o	drivers/misc/mediatek/base/power/mcdi/mt6885/mtk_mcdi_plat.c	
+drivers/misc/mediatek/base/power/mcdi/mt6885/Makefile	obj-y	mtk_mcdi_state.o	drivers/misc/mediatek/base/power/mcdi/mt6885/mtk_mcdi_state.c	
+drivers/misc/mediatek/base/power/mcdi/mt6893/Makefile	obj-y	mtk_mcdi_plat.o	drivers/misc/mediatek/base/power/mcdi/mt6893/mtk_mcdi_plat.c	
+drivers/misc/mediatek/base/power/mcdi/mt6893/Makefile	obj-y	mtk_mcdi_state.o	drivers/misc/mediatek/base/power/mcdi/mt6893/mtk_mcdi_state.c	
+drivers/misc/mediatek/base/power/mdpm_v1/Makefile	obj-y	mtk_mdpm_common.o	drivers/misc/mediatek/base/power/mdpm_v1/mtk_mdpm_common.c	
+drivers/misc/mediatek/base/power/mdpm_v2/Makefile	obj-y	mtk_mdpm_common.o	drivers/misc/mediatek/base/power/mdpm_v2/mtk_mdpm_common.c	
+drivers/misc/mediatek/base/power/mdpm_v2/mt6885/Makefile	obj-y	mtk_mdpm_platform.o	drivers/misc/mediatek/base/power/mdpm_v2/mt6885/mtk_mdpm_platform.c	
+drivers/misc/mediatek/base/power/mdpm_v2/mt6893/Makefile	obj-y	mtk_mdpm_platform.o	drivers/misc/mediatek/base/power/mdpm_v2/mt6893/mtk_mdpm_platform.c	
+drivers/misc/mediatek/base/power/pbm_v3/Makefile	obj-y	mtk_pbm.o	drivers/misc/mediatek/base/power/pbm_v3/mtk_pbm.c	
+drivers/misc/mediatek/base/power/pbm_v4/Makefile	obj-y	mtk_pbm.o	drivers/misc/mediatek/base/power/pbm_v4/mtk_pbm.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6739	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6739	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6768	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6768	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6771	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6771	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6785	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6785	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6765	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6765	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6885	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6885	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6893	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6893	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6873	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6873	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6853	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6853	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6833	mtk_power_gs.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs.c	
+drivers/misc/mediatek/base/power/power_gs_v1/Makefile	CONFIG_MACH_MT6833	mtk_power_gs_api.o	drivers/misc/mediatek/base/power/power_gs_v1/mtk_power_gs_api.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_6359_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_6359_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_6315_1_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_6315_1_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_6315_2_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_6315_2_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_6315_3_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_6315_3_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_cg_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_cg_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_dcm_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_dcm_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_sp.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_sp.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_compare.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_compare.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6885/Makefile	obj-y	mtk_power_gs_dump_pmic.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6885/mtk_power_gs_dump_pmic.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_6359_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_6359_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_6315_1_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_6315_1_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_6315_2_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_6315_2_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_6315_3_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_6315_3_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_cg_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_cg_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_dcm_array.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_dcm_array.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_sp.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_sp.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_compare.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_compare.c	
+drivers/misc/mediatek/base/power/power_gs_v1/mt6893/Makefile	obj-y	mtk_power_gs_dump_pmic.o	drivers/misc/mediatek/base/power/power_gs_v1/mt6893/mtk_power_gs_dump_pmic.c	
+drivers/misc/mediatek/base/power/power_throttling/Makefile	obj-y	mtk_md_power_throttling.o	drivers/misc/mediatek/base/power/power_throttling/mtk_md_power_throttling.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_interface.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_interface.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_api.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_api.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_profile.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_profile.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_ipi.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_ipi.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_cpi.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_cpi.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_dlpt.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_dlpt.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_sys_boost.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_sys_boost.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_ptpod.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_ptpod.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_pwr_thro.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_pwr_thro.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_thermal.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_thermal.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_lcm_off.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_lcm_off.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_hard_user_limit.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_hard_user_limit.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_user_limit.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_user_limit.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_force_limit.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_force_limit.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/Makefile	obj-y	mtk_ppm_policy_ut.o	drivers/misc/mediatek/base/power/ppm_v3/src/mtk_ppm_policy_ut.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6885/Makefile	obj-y	mtk_ppm_platform.o	drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6885/mtk_ppm_platform.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6885/Makefile	obj-y	mtk_ppm_power_data.o	drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6885/mtk_ppm_power_data.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6885/Makefile	obj-y	mtk_ppm_cobra_algo.o	drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6885/mtk_ppm_cobra_algo.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6893/Makefile	obj-y	mtk_ppm_platform.o	drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6893/mtk_ppm_platform.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6893/Makefile	obj-y	mtk_ppm_power_data.o	drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6893/mtk_ppm_power_data.c	
+drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6893/Makefile	obj-y	mtk_ppm_cobra_algo.o	drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6893/mtk_ppm_cobra_algo.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_main.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_main.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_fll.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_fll.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_cinst.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_cinst.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_drcc.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_drcc.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_brisket2.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_brisket2.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_ctt.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_ctt.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_pdp.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_pdp.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_dt.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_dt.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_adcc.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_adcc.c	
+drivers/misc/mediatek/base/power/ptp3_v1/mt6893/Makefile	obj-y	mtk_ptp3_iglre.o	drivers/misc/mediatek/base/power/ptp3_v1/mt6893/mtk_ptp3_iglre.c	
+drivers/misc/mediatek/base/power/qos/Makefile	obj-y	mtk_qos_ipi_v2.o	drivers/misc/mediatek/base/power/qos/mtk_qos_ipi_v2.c	
+drivers/misc/mediatek/base/power/qos/Makefile	obj-y	mtk_qos_ipi.o	drivers/misc/mediatek/base/power/qos/mtk_qos_ipi.c	
+drivers/misc/mediatek/base/power/qos/Makefile	obj-y	mtk_qos_main.o	drivers/misc/mediatek/base/power/qos/mtk_qos_main.c	
+drivers/misc/mediatek/base/power/qos/Makefile	obj-y	mtk_qos_bound.o	drivers/misc/mediatek/base/power/qos/mtk_qos_bound.c	
+drivers/misc/mediatek/base/power/qos/Makefile	obj-y	mtk_qos_sram.o	drivers/misc/mediatek/base/power/qos/mtk_qos_sram.c	
+drivers/misc/mediatek/base/power/qos/Makefile	obj-y	mtk_qos_sysfs.o	drivers/misc/mediatek/base/power/qos/mtk_qos_sysfs.c	
+drivers/misc/mediatek/base/power/ses_v1/Makefile	obj-y	mtk_ses.o	drivers/misc/mediatek/base/power/ses_v1/mtk_ses.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle_select.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_select.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle_internal.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_internal.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle_profile.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_profile.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle_twam.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_twam.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_spm_resource_req.o	drivers/misc/mediatek/base/power/spm/common/mtk_spm_resource_req.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_sleep.o	drivers/misc/mediatek/base/power/spm/common/mtk_sleep.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_sleep_init.o	drivers/misc/mediatek/base/power/spm/common/mtk_sleep_init.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_vcore_dvfs.o	drivers/misc/mediatek/base/power/spm/common/mtk_vcore_dvfs.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle_module.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_module.c	
+drivers/misc/mediatek/base/power/spm/common/Makefile	obj-y	mtk_idle_export_legacy.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_export_legacy.c	
+drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/Makefile	obj-y	mtk_lp_kernfs.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_lp_kernfs.c	
+drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/Makefile	obj-y	mtk_lp_sysfs.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_lp_sysfs.c	
+drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/Makefile	obj-y	mtk_idle_sysfs.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_idle_sysfs.c	
+drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/Makefile	obj-y	mtk_lp_sysfs_procfs.o	drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs/mtk_lp_sysfs_procfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_sleep.o	drivers/misc/mediatek/base/power/spm_v4/mtk_sleep.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_init.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_init.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_dpidle.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_dpidle.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_profile.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_profile.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_fs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_fs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_internal.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_internal.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_resource_req.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_resource_req.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sleep.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sleep.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi3p0.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi3p0.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_vcorefs_mt6771.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_vcorefs_mt6771.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_lp_sysfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_lp_sysfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_lp_kernfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_lp_kernfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_sysfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_sysfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_lp_sysfs_procfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_lp_sysfs_procfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_vcorefs_ipi_mt6771.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_vcorefs_ipi_mt6771.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_sleep.o	drivers/misc/mediatek/base/power/spm_v4/mtk_sleep.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_init.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_init.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_dpidle.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_dpidle.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_profile.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_profile.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_fs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_fs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_internal.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_internal.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_resource_req.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_resource_req.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sleep.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sleep.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi3p0.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi3p0.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_vcorefs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_vcorefs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_lp_sysfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_lp_sysfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_lp_kernfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_lp_kernfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_sysfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_sysfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_lp_sysfs_procfs.o	drivers/misc/mediatek/base/power/spm_v4/mtk_lp_sysfs_procfs.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_mt6763.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_mt6763.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_dpidle_mt6763.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_dpidle_mt6763.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_pmic_wrap.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_pmic_wrap.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sleep_mt6763.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sleep_mt6763.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi_mt6763.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi_mt6763.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_mt6739.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_mt6739.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_dpidle_mt6739.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_dpidle_mt6739.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sleep_mt6739.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sleep_mt6739.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi_mt6739.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi_mt6739.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_idle_mt6771.o	drivers/misc/mediatek/base/power/spm_v4/mtk_idle_mt6771.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_dpidle_mt6771.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_dpidle_mt6771.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sleep_mt6771.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sleep_mt6771.c	
+drivers/misc/mediatek/base/power/spm_v4/Makefile	obj-y	mtk_spm_sodi_mt6771.o	drivers/misc/mediatek/base/power/spm_v4/mtk_spm_sodi_mt6771.c	
+drivers/misc/mediatek/base/power/srclken_rc_v1/Makefile	obj-y	mtk_srclken_rc.o	drivers/misc/mediatek/base/power/srclken_rc_v1/mtk_srclken_rc.c	
+drivers/misc/mediatek/base/power/srclken_rc_v1/mt6885/Makefile	obj-y	mtk_srclken_rc_hw.o	drivers/misc/mediatek/base/power/srclken_rc_v1/mt6885/mtk_srclken_rc_hw.c	
+drivers/misc/mediatek/base/power/swpm_v1/Makefile	obj-y	mtk_swpm.o	drivers/misc/mediatek/base/power/swpm_v1/mtk_swpm.c	
+drivers/misc/mediatek/base/power/swpm_v1/Makefile	obj-y	mtk_swpm_common.o	drivers/misc/mediatek/base/power/swpm_v1/mtk_swpm_common.c	
+drivers/misc/mediatek/base/power/swpm_v1/mt6885/Makefile	obj-y	mtk_swpm_platform.o	drivers/misc/mediatek/base/power/swpm_v1/mt6885/mtk_swpm_platform.c	
+drivers/misc/mediatek/base/power/swpm_v1/mt6885/Makefile	obj-y	mtk_swpm_sp_platform.o	drivers/misc/mediatek/base/power/swpm_v1/mt6885/mtk_swpm_sp_platform.c	
+drivers/misc/mediatek/base/power/swpm_v1/mt6893/Makefile	obj-y	mtk_swpm_platform.o	drivers/misc/mediatek/base/power/swpm_v1/mt6893/mtk_swpm_platform.c	
+drivers/misc/mediatek/base/power/swpm_v1/mt6893/Makefile	obj-y	mtk_swpm_sp_platform.o	drivers/misc/mediatek/base/power/swpm_v1/mt6893/mtk_swpm_sp_platform.c	
+drivers/misc/mediatek/base/power/udi_v1/Makefile	obj-y	mtk_udi.o	drivers/misc/mediatek/base/power/udi_v1/mtk_udi.c	
+drivers/misc/mediatek/base/power/udi_v2/Makefile	obj-y	mtk_udi.o	drivers/misc/mediatek/base/power/udi_v2/mtk_udi.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6759	mtk_unified_power_mt6759.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6759.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6763	mtk_unified_power_mt6763.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6763.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6758	mtk_unified_power_mt6758.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6758.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6765	mtk_unified_power_mt6765.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6765.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6739	mtk_unified_power_mt6739.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6739.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6771	mtk_unified_power_mt6771.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6771.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6775	mtk_unified_power_mt6775.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6775.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6768	mtk_unified_power_mt6768.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6768.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6785	mtk_unified_power_mt6785.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6785.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6893	mtk_unified_power_mt6893.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6893.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6873	mtk_unified_power_mt6873.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6873.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6853	mtk_unified_power_mt6853.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6853.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT8168	mtk_unified_power_mt8168.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt8168.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	CONFIG_MACH_MT6833	mtk_unified_power_mt6833.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6833.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	obj-y	mtk_unified_power.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	obj-y	mtk_unified_power_internal.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_internal.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	obj-y	mtk_unified_power_api.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_api.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	obj-y	mtk_unified_power_mt6885.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6885.c	
+drivers/misc/mediatek/base/power/upower_v2/Makefile	obj-y	mtk_unified_power_mt6893.o	drivers/misc/mediatek/base/power/upower_v2/mtk_unified_power_mt6893.c	
+drivers/misc/mediatek/base/power/vcorefs_v3/Makefile	obj-y	mtk_vcorefs_manager.o	drivers/misc/mediatek/base/power/vcorefs_v3/mtk_vcorefs_manager.c	
+drivers/misc/mediatek/base/power/vcorefs_v3/Makefile	obj-y	mtk_vcorefs_governor.o	drivers/misc/mediatek/base/power/vcorefs_v3/mtk_vcorefs_governor.c	
+drivers/misc/mediatek/connectivity/Makefile	obj-y	$(MODULE_NAME).o	drivers/misc/mediatek/connectivity/$(MODULE_NAME).c	
+drivers/misc/mediatek/debug_latch/cache_parity/Makefile	obj-y	cache_parity.o	drivers/misc/mediatek/debug_latch/cache_parity/cache_parity.c	
+drivers/misc/mediatek/debug_latch/l2c_parity/Makefile	obj-y	l2c_parity.o	drivers/misc/mediatek/debug_latch/l2c_parity/l2c_parity.c	
+drivers/misc/mediatek/debug_latch/lastbus/Makefile	obj-y	lastbus.o	drivers/misc/mediatek/debug_latch/lastbus/lastbus.c	
+drivers/misc/mediatek/debug_latch/plat_dbg_info/Makefile	obj-y	plat_dbg_info.o	drivers/misc/mediatek/debug_latch/plat_dbg_info/plat_dbg_info.c	
+drivers/misc/mediatek/debug_latch/plat_dbg_info/Makefile	obj-y	plat_sram_flag.o	drivers/misc/mediatek/debug_latch/plat_dbg_info/plat_sram_flag.c	
+drivers/misc/mediatek/devmpu/Makefile	CONFIG_MTK_DEVMPU	devmpu.o	drivers/misc/mediatek/devmpu/devmpu.c	Enable MTK Device MPU driver
+drivers/misc/mediatek/devmpu/Makefile	CONFIG_MTK_DEVMPU_EMI	devmpu_emi.o	drivers/misc/mediatek/devmpu/devmpu_emi.c	Enable MTK Device MPU with EMI MPU
+drivers/misc/mediatek/eccci/mixdev/Makefile	obj-y	mix_event_lib.o	drivers/misc/mediatek/eccci/mixdev/mix_event_lib.c	
+drivers/misc/mediatek/eccci/udc/Makefile	CONFIG_MTK_ECCCI_DRIVER	udc.o	drivers/misc/mediatek/eccci/udc/udc.c	Enable Evolved CCCI Driver as interface for modem
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	bwl_platform.o	drivers/misc/mediatek/emi/mt6885/bwl_platform.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	mpu_platform.o	drivers/misc/mediatek/emi/mt6885/mpu_platform.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	plat_debug_api.o	drivers/misc/mediatek/emi/mt6885/plat_debug_api.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	../emi_ctrl_v1.o	drivers/misc/mediatek/emi/mt6885/../emi_ctrl_v1.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	../submodule/bwl_v1.o	drivers/misc/mediatek/emi/mt6885/../submodule/bwl_v1.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	../submodule/mpu_v1.o	drivers/misc/mediatek/emi/mt6885/../submodule/mpu_v1.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	../submodule/elm_v2.o	drivers/misc/mediatek/emi/mt6885/../submodule/elm_v2.c	
+drivers/misc/mediatek/emi/mt6885/Makefile	obj-y	../submodule/pasr_api_v1.o	drivers/misc/mediatek/emi/mt6885/../submodule/pasr_api_v1.c	
+drivers/misc/mediatek/m4u/2.0/Makefile	obj-y	m4u.o	drivers/misc/mediatek/m4u/2.0/m4u.c	
+drivers/misc/mediatek/m4u/2.0/Makefile	obj-y	m4u_mva.o	drivers/misc/mediatek/m4u/2.0/m4u_mva.c	
+drivers/misc/mediatek/m4u/2.0/Makefile	obj-y	m4u_pgtable.o	drivers/misc/mediatek/m4u/2.0/m4u_pgtable.c	
+drivers/misc/mediatek/m4u/2.0/Makefile	obj-y	m4u_debug.o	drivers/misc/mediatek/m4u/2.0/m4u_debug.c	
+drivers/misc/mediatek/m4u/2.0/Makefile	obj-y	m4u_sec_gp.o	drivers/misc/mediatek/m4u/2.0/m4u_sec_gp.c	
+drivers/misc/mediatek/m4u/2.0/Makefile	obj-y	m4u_sec_gp.o	drivers/misc/mediatek/m4u/2.0/m4u_sec_gp.c	
+drivers/misc/mediatek/m4u/2.4/Makefile	obj-y	m4u.o	drivers/misc/mediatek/m4u/2.4/m4u.c	
+drivers/misc/mediatek/m4u/2.4/Makefile	obj-y	m4u_mva.o	drivers/misc/mediatek/m4u/2.4/m4u_mva.c	
+drivers/misc/mediatek/m4u/2.4/Makefile	obj-y	m4u_pgtable.o	drivers/misc/mediatek/m4u/2.4/m4u_pgtable.c	
+drivers/misc/mediatek/m4u/2.4/Makefile	obj-y	m4u_vpu_ut.o	drivers/misc/mediatek/m4u/2.4/m4u_vpu_ut.c	
+drivers/misc/mediatek/m4u/2.4/Makefile	obj-y	m4u_debug.o	drivers/misc/mediatek/m4u/2.4/m4u_debug.c	
+drivers/misc/mediatek/m4u/2.4/Makefile	obj-y	m4u_sec_gp.o	drivers/misc/mediatek/m4u/2.4/m4u_sec_gp.c	
+drivers/misc/mediatek/m4u/3.2/Makefile	obj-y	m4u.o	drivers/misc/mediatek/m4u/3.2/m4u.c	
+drivers/misc/mediatek/m4u/3.2/Makefile	obj-y	m4u_mva.o	drivers/misc/mediatek/m4u/3.2/m4u_mva.c	
+drivers/misc/mediatek/m4u/3.2/Makefile	obj-y	m4u_pgtable.o	drivers/misc/mediatek/m4u/3.2/m4u_pgtable.c	
+drivers/misc/mediatek/m4u/3.2/Makefile	obj-y	m4u_debug.o	drivers/misc/mediatek/m4u/3.2/m4u_debug.c	
+drivers/misc/mediatek/m4u/3.2/Makefile	obj-y	m4u_sec_gp.o	drivers/misc/mediatek/m4u/3.2/m4u_sec_gp.c	
+drivers/misc/mediatek/m4u/3.2/Makefile	obj-y	m4u_sec_gz.o	drivers/misc/mediatek/m4u/3.2/m4u_sec_gz.c	
+drivers/misc/mediatek/m4u/mt6885/Makefile	CONFIG_MTK_M4U	m4u_hw.o	drivers/misc/mediatek/m4u/mt6885/m4u_hw.c	MediaTek M4U driver
+drivers/misc/mediatek/m4u/mt6893/Makefile	CONFIG_MTK_M4U	m4u_hw.o	drivers/misc/mediatek/m4u/mt6893/m4u_hw.c	MediaTek M4U driver
+drivers/misc/mediatek/mddp/Makefile	CONFIG_MTK_MDDP_SUPPORT	mddp.o	drivers/misc/mediatek/mddp/mddp.c	Support Mediatek MD Direct Path
+drivers/misc/mediatek/performance/Makefile	obj-y	perfmgr_main.o	drivers/misc/mediatek/performance/perfmgr_main.c	
+drivers/misc/mediatek/performance/base/Makefile	obj-y	utility.o	drivers/misc/mediatek/performance/base/utility.c	
+drivers/misc/mediatek/performance/boost_ctrl/Makefile	obj-y	boostctrl_main.o	drivers/misc/mediatek/performance/boost_ctrl/boostctrl_main.c	
+drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/Makefile	CONFIG_MTK_CPU_CTRL_CFP	cpu_ctrl_cfp.o	drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/cpu_ctrl_cfp.c	CPU CTRL Ceiling-Fool-Proof
+drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/Makefile	obj-y	cpu_ctrl.o	drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/cpu_ctrl.c	
+drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/Makefile	obj-y	cpu_ctrl_dummy.o	drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/cpu_ctrl_dummy.c	
+drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/Makefile	obj-y	cpu_ctrl.o	drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/cpu_ctrl.c	
+drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/Makefile	obj-y	cpu_ctrl_dummy.o	drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl/cpu_ctrl_dummy.c	
+drivers/misc/mediatek/performance/boost_ctrl/dram_ctrl/Makefile	obj-y	dram_ctrl.o	drivers/misc/mediatek/performance/boost_ctrl/dram_ctrl/dram_ctrl.c	
+drivers/misc/mediatek/performance/boost_ctrl/eas_ctrl/Makefile	obj-y	eas_ctrl.o	drivers/misc/mediatek/performance/boost_ctrl/eas_ctrl/eas_ctrl.c	
+drivers/misc/mediatek/performance/boost_ctrl/topo_ctrl/Makefile	obj-y	topo_ctrl.o	drivers/misc/mediatek/performance/boost_ctrl/topo_ctrl/topo_ctrl.c	
+drivers/misc/mediatek/performance/eara_thermal/Makefile	obj-y	platform/$(MTK_PLATFORM)/thermal_budget_platform.o	drivers/misc/mediatek/performance/eara_thermal/platform/$(MTK_PLATFORM)/thermal_budget_platform.c	
+drivers/misc/mediatek/performance/eara_thermal/Makefile	obj-y	src/thermal_budget.o	drivers/misc/mediatek/performance/eara_thermal/src/thermal_budget.c	
+drivers/misc/mediatek/performance/eara_thermal/Makefile	obj-y	src/thermal_base.o	drivers/misc/mediatek/performance/eara_thermal/src/thermal_base.c	
+drivers/misc/mediatek/performance/eara_thermal/Makefile	obj-y	src/thermal_prethrottle.o	drivers/misc/mediatek/performance/eara_thermal/src/thermal_prethrottle.c	
+drivers/misc/mediatek/performance/fpsgo_v3/Makefile	obj-y	fpsgo_main.o	drivers/misc/mediatek/performance/fpsgo_v3/fpsgo_main.c	
+drivers/misc/mediatek/performance/fpsgo_v3/composer/Makefile	obj-y	src/fps_composer.o	drivers/misc/mediatek/performance/fpsgo_v3/composer/src/fps_composer.c	
+drivers/misc/mediatek/performance/fpsgo_v3/eara_job/Makefile	obj-y	src/eara_job.o	drivers/misc/mediatek/performance/fpsgo_v3/eara_job/src/eara_job.c	
+drivers/misc/mediatek/performance/fpsgo_v3/fbt/Makefile	obj-y	platform/mt6893/fbt_cpu_platform.o	drivers/misc/mediatek/performance/fpsgo_v3/fbt/platform/mt6893/fbt_cpu_platform.c	
+drivers/misc/mediatek/performance/fpsgo_v3/fbt/Makefile	obj-y	platform/$(MTK_PLATFORM)/fbt_cpu_platform.o	drivers/misc/mediatek/performance/fpsgo_v3/fbt/platform/$(MTK_PLATFORM)/fbt_cpu_platform.c	
+drivers/misc/mediatek/performance/fpsgo_v3/fstb/Makefile	obj-y	fstb.o	drivers/misc/mediatek/performance/fpsgo_v3/fstb/fstb.c	
+drivers/misc/mediatek/performance/gbe/Makefile	obj-y	gbe1_main.o	drivers/misc/mediatek/performance/gbe/gbe1_main.c	
+drivers/misc/mediatek/performance/gbe/Makefile	obj-y	gbe2_main.o	drivers/misc/mediatek/performance/gbe/gbe2_main.c	
+drivers/misc/mediatek/performance/gbe/Makefile	obj-y	gbe_common.o	drivers/misc/mediatek/performance/gbe/gbe_common.c	
+drivers/misc/mediatek/performance/gbe/Makefile	obj-y	gbe_sysfs.o	drivers/misc/mediatek/performance/gbe/gbe_sysfs.c	
+drivers/misc/mediatek/performance/load_track/Makefile	obj-y	load_track.o	drivers/misc/mediatek/performance/load_track/load_track.c	
+drivers/misc/mediatek/performance/observer/Makefile	obj-y	pob_main.o	drivers/misc/mediatek/performance/observer/pob_main.c	
+drivers/misc/mediatek/performance/observer/Makefile	obj-y	fpsgo_notify.o	drivers/misc/mediatek/performance/observer/fpsgo_notify.c	
+drivers/misc/mediatek/performance/observer/Makefile	obj-y	qos_notify.o	drivers/misc/mediatek/performance/observer/qos_notify.c	
+drivers/misc/mediatek/performance/observer/Makefile	obj-y	nn_notify.o	drivers/misc/mediatek/performance/observer/nn_notify.c	
+drivers/misc/mediatek/performance/observer/Makefile	obj-y	xpu_notify.o	drivers/misc/mediatek/performance/observer/xpu_notify.c	
+drivers/misc/mediatek/performance/observer/Makefile	obj-y	eara_thrm_notify.o	drivers/misc/mediatek/performance/observer/eara_thrm_notify.c	
+drivers/misc/mediatek/performance/observer/platform/mt6885/Makefile	obj-y	qos_pfm.o	drivers/misc/mediatek/performance/observer/platform/mt6885/qos_pfm.c	
+drivers/misc/mediatek/performance/observer/platform/mt6893/Makefile	obj-y	qos_pfm.o	drivers/misc/mediatek/performance/observer/platform/mt6893/qos_pfm.c	
+drivers/misc/mediatek/performance/perf_ioctl/Makefile	obj-y	perf_ioctl.o	drivers/misc/mediatek/performance/perf_ioctl/perf_ioctl.c	
+drivers/misc/mediatek/performance/resym/Makefile	obj-y	rs_trace.o	drivers/misc/mediatek/performance/resym/rs_trace.c	
+drivers/misc/mediatek/performance/resym/Makefile	obj-y	rs_base.o	drivers/misc/mediatek/performance/resym/rs_base.c	
+drivers/misc/mediatek/performance/resym/Makefile	obj-y	rs_main.o	drivers/misc/mediatek/performance/resym/rs_main.c	
+drivers/misc/mediatek/performance/resym/Makefile	obj-y	rs_usage.o	drivers/misc/mediatek/performance/resym/rs_usage.c	
+drivers/misc/mediatek/performance/resym/Makefile	obj-y	rs_state.o	drivers/misc/mediatek/performance/resym/rs_state.c	
+drivers/misc/mediatek/performance/resym/platform/mt6885/Makefile	obj-y	rs_vpu_pfm.o	drivers/misc/mediatek/performance/resym/platform/mt6885/rs_vpu_pfm.c	
+drivers/misc/mediatek/performance/resym/platform/mt6885/Makefile	obj-y	rs_mdla_pfm.o	drivers/misc/mediatek/performance/resym/platform/mt6885/rs_mdla_pfm.c	
+drivers/misc/mediatek/performance/resym/platform/mt6893/Makefile	obj-y	rs_vpu_pfm.o	drivers/misc/mediatek/performance/resym/platform/mt6893/rs_vpu_pfm.c	
+drivers/misc/mediatek/performance/resym/platform/mt6893/Makefile	obj-y	rs_mdla_pfm.o	drivers/misc/mediatek/performance/resym/platform/mt6893/rs_mdla_pfm.c	
+drivers/misc/mediatek/performance/syslimiter/Makefile	obj-y	syslimiter.o	drivers/misc/mediatek/performance/syslimiter/syslimiter.c	
+drivers/misc/mediatek/performance/tchbst/Makefile	obj-y	tchbst_main.o	drivers/misc/mediatek/performance/tchbst/tchbst_main.c	
+drivers/misc/mediatek/performance/tchbst/kernel/Makefile	obj-y	ktch.o	drivers/misc/mediatek/performance/tchbst/kernel/ktch.c	
+drivers/misc/mediatek/performance/tchbst/user/Makefile	obj-y	utch.o	drivers/misc/mediatek/performance/tchbst/user/utch.c	
+drivers/misc/mediatek/performance/uload_ind/Makefile	obj-y	uload_ind.o	drivers/misc/mediatek/performance/uload_ind/uload_ind.c	
+drivers/misc/mediatek/pmic/Makefile	obj-y	mtk_battery_adc_intf.o	drivers/misc/mediatek/pmic/mtk_battery_adc_intf.c	
+drivers/misc/mediatek/pmic/common/Makefile	CONFIG_MTK_PMIC_COMMON	upmu.o	drivers/misc/mediatek/pmic/common/upmu.c	MediaTek Power Management Common driver
+drivers/misc/mediatek/pmic/common/Makefile	CONFIG_MTK_PMIC_COMMON	upmu_regulator.o	drivers/misc/mediatek/pmic/common/upmu_regulator.c	MediaTek Power Management Common driver
+drivers/misc/mediatek/pmic/common/Makefile	CONFIG_MTK_PMIC_COMMON	upmu_debugfs.o	drivers/misc/mediatek/pmic/common/upmu_debugfs.c	MediaTek Power Management Common driver
+drivers/misc/mediatek/pmic/common/Makefile	CONFIG_MTK_PMIC_COMMON	upmu_initial_setting.o	drivers/misc/mediatek/pmic/common/upmu_initial_setting.c	MediaTek Power Management Common driver
+drivers/misc/mediatek/pmic/common/Makefile	obj-y	upmu_lbat_service_v2.o	drivers/misc/mediatek/pmic/common/upmu_lbat_service_v2.c	
+drivers/misc/mediatek/pmic/common/Makefile	obj-y	upmu_lbat_service_v2.o	drivers/misc/mediatek/pmic/common/upmu_lbat_service_v2.c	
+drivers/misc/mediatek/pmic/common/Makefile	obj-y	upmu_lbat_service.o	drivers/misc/mediatek/pmic/common/upmu_lbat_service.c	
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_ISL91302A	vproc2_ipi.o	drivers/misc/mediatek/pmic/extbuck/vproc2_ipi.c	Intersil Spi Ext Buck Isl91302a
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_ISL91302A	isl91302a-spi.o	drivers/misc/mediatek/pmic/extbuck/isl91302a-spi.c	Intersil Spi Ext Buck Isl91302a
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_ISL91302A	isl91302a-regulator.o	drivers/misc/mediatek/pmic/extbuck/isl91302a-regulator.c	Intersil Spi Ext Buck Isl91302a
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_RT5734	rt5734-spi.o	drivers/misc/mediatek/pmic/extbuck/rt5734-spi.c	Richtek Spi Ext Buck rt5734
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_RT5734	rt5734-regulator.o	drivers/misc/mediatek/pmic/extbuck/rt5734-regulator.c	Richtek Spi Ext Buck rt5734
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_RT5738	rt5738-regulator.o	drivers/misc/mediatek/pmic/extbuck/rt5738-regulator.c	Richtek Ext Buck RT5738
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_REGULATOR_MT6691	mt6691-regulator.o	drivers/misc/mediatek/pmic/extbuck/mt6691-regulator.c	MediaTek I2C Ext Buck MT6691
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_EXTBUCK_MT6311	mt6311-i2c.o	drivers/misc/mediatek/pmic/extbuck/mt6311-i2c.c	MediaTek I2C Ext Buck MT6311
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_EXTBUCK_MT6311	mt6311-regulator.o	drivers/misc/mediatek/pmic/extbuck/mt6311-regulator.c	MediaTek I2C Ext Buck MT6311
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_EXTBUCK_MT6311	mt6311_api.o	drivers/misc/mediatek/pmic/extbuck/mt6311_api.c	MediaTek I2C Ext Buck MT6311
+drivers/misc/mediatek/pmic/extbuck/Makefile	CONFIG_MTK_EXTBUCK	extbuck.o	drivers/misc/mediatek/pmic/extbuck/extbuck.c	EXT BUCK Driver
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6357	pmic.o	drivers/misc/mediatek/pmic/mt6357/v1/pmic.c	MediaTek PMIC MT6357 Driver
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6357	pmic_common.o	drivers/misc/mediatek/pmic/mt6357/v1/pmic_common.c	MediaTek PMIC MT6357 Driver
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6357	pmic_chr_type_det_v2.o	drivers/misc/mediatek/pmic/mt6357/v1/pmic_chr_type_det_v2.c	MediaTek PMIC MT6357 Driver
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6357	pmic_chr_type_det.o	drivers/misc/mediatek/pmic/mt6357/v1/pmic_chr_type_det.c	MediaTek PMIC MT6357 Driver
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	obj-y	pmic_ipi.o	drivers/misc/mediatek/pmic/mt6357/v1/pmic_ipi.c	
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	obj-y	mt6357_gauge.o	drivers/misc/mediatek/pmic/mt6357/v1/mt6357_gauge.c	
+drivers/misc/mediatek/pmic/mt6357/v1/Makefile	obj-y	mt6357_charger.o	drivers/misc/mediatek/pmic/mt6357/v1/mt6357_charger.c	
+drivers/misc/mediatek/pmic/mt6358/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6358	pmic.o	drivers/misc/mediatek/pmic/mt6358/v1/pmic.c	MediaTek PMIC MT6358 Driver
+drivers/misc/mediatek/pmic/mt6358/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6358	pmic_common.o	drivers/misc/mediatek/pmic/mt6358/v1/pmic_common.c	MediaTek PMIC MT6358 Driver
+drivers/misc/mediatek/pmic/mt6358/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6358	pmic_dummy_chr_type_det.o	drivers/misc/mediatek/pmic/mt6358/v1/pmic_dummy_chr_type_det.c	MediaTek PMIC MT6358 Driver
+drivers/misc/mediatek/pmic/mt6358/v1/Makefile	obj-y	pmic_ipi.o	drivers/misc/mediatek/pmic/mt6358/v1/pmic_ipi.c	
+drivers/misc/mediatek/pmic/mt6358/v1/Makefile	obj-y	mt6358_gauge.o	drivers/misc/mediatek/pmic/mt6358/v1/mt6358_gauge.c	
+drivers/misc/mediatek/pmic/mt6359/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6359	pmic.o	drivers/misc/mediatek/pmic/mt6359/v1/pmic.c	MediaTek PMIC MT6359 Driver
+drivers/misc/mediatek/pmic/mt6359/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6359	pmic_common.o	drivers/misc/mediatek/pmic/mt6359/v1/pmic_common.c	MediaTek PMIC MT6359 Driver
+drivers/misc/mediatek/pmic/mt6359/v1/Makefile	obj-y	pmic_ipi.o	drivers/misc/mediatek/pmic/mt6359/v1/pmic_ipi.c	
+drivers/misc/mediatek/pmic/mt6359/v1/Makefile	obj-y	mt6359_gauge.o	drivers/misc/mediatek/pmic/mt6359/v1/mt6359_gauge.c	
+drivers/misc/mediatek/pmic/mt6359p/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6359P	pmic.o	drivers/misc/mediatek/pmic/mt6359p/v1/pmic.c	MediaTek PMIC MT6359P Driver
+drivers/misc/mediatek/pmic/mt6359p/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6359P	pmic_common.o	drivers/misc/mediatek/pmic/mt6359p/v1/pmic_common.c	MediaTek PMIC MT6359P Driver
+drivers/misc/mediatek/pmic/mt6359p/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6359P	pmic_oc_debug.o	drivers/misc/mediatek/pmic/mt6359p/v1/pmic_oc_debug.c	MediaTek PMIC MT6359P Driver
+drivers/misc/mediatek/pmic/mt6359p/v1/Makefile	obj-y	pmic_ipi.o	drivers/misc/mediatek/pmic/mt6359p/v1/pmic_ipi.c	
+drivers/misc/mediatek/pmic/mt6359p/v1/Makefile	obj-y	mt6359_gauge.o	drivers/misc/mediatek/pmic/mt6359p/v1/mt6359_gauge.c	
+drivers/misc/mediatek/pmic/mt6360/ldo/Makefile	CONFIG_MT6360_LDO	mt6360_ldo_i2c.o	drivers/misc/mediatek/pmic/mt6360/ldo/mt6360_ldo_i2c.c	Support for MT6360 LDO part
+drivers/misc/mediatek/pmic/mt6360/ldo/Makefile	CONFIG_MT6360_LDO	mt6360_ldo_regmap.o	drivers/misc/mediatek/pmic/mt6360/ldo/mt6360_ldo_regmap.c	Support for MT6360 LDO part
+drivers/misc/mediatek/pmic/mt6360/pmic/Makefile	CONFIG_MT6360_PMIC	mt6360_pmic_i2c.o	drivers/misc/mediatek/pmic/mt6360/pmic/mt6360_pmic_i2c.c	Support for MT6360 PMIC part
+drivers/misc/mediatek/pmic/mt6360/pmic/Makefile	CONFIG_MT6360_PMIC	mt6360_pmic_regmap.o	drivers/misc/mediatek/pmic/mt6360/pmic/mt6360_pmic_regmap.c	Support for MT6360 PMIC part
+drivers/misc/mediatek/pmic/mt6360/pmu/Makefile	CONFIG_MFD_MT6360_PMU	mt6360_pmu_i2c.o	drivers/misc/mediatek/pmic/mt6360/pmu/mt6360_pmu_i2c.c	Support for MT6360 PMU part
+drivers/misc/mediatek/pmic/mt6360/pmu/Makefile	CONFIG_MT6360_PMU_FLED	mt6360_pmu_fled.o	drivers/misc/mediatek/pmic/mt6360/pmu/mt6360_pmu_fled.c	MT6360 PMU FLED Part
+drivers/misc/mediatek/pmic/mt6360/pmu/Makefile	CONFIG_MT6360_PMU_RGBLED	mt6360_pmu_rgbled.o	drivers/misc/mediatek/pmic/mt6360/pmu/mt6360_pmu_rgbled.c	MT6360 PMU RGBLED Part
+drivers/misc/mediatek/pmic/mt6360/pmu/Makefile	CONFIG_MT6360_PMU_RGBLED	mt_led_trigger.o	drivers/misc/mediatek/pmic/mt6360/pmu/mt_led_trigger.c	MT6360 PMU RGBLED Part
+drivers/misc/mediatek/pmic/mt6360/pmu/Makefile	CONFIG_MT6360_PMU_CHARGER	mt6360_pmu_chg.o	drivers/misc/mediatek/pmic/mt6360/pmu/mt6360_pmu_chg.c	MT6360 PMU Charger Part
+drivers/misc/mediatek/pmic/mt6360/pmu/Makefile	CONFIG_MT6360_PMU_CHARGER	mt6360_pmu_adc.o	drivers/misc/mediatek/pmic/mt6360/pmu/mt6360_pmu_adc.c	MT6360 PMU Charger Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MFD_MT6370_PMU	mt6370_pmu_i2c.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_i2c.c	Support for MT6370 PMU part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_LDO	mt6370_pmu_ldo.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_ldo.c	MT6370 PMU LDO Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_DSV	mt6370_pmu_dsv.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_dsv.c	MT6370 PMU DSV Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_DSV	mt6370_pmu_dsv_debugfs.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_dsv_debugfs.c	MT6370 PMU DSV Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_FLED	mt6370_pmu_fled.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_fled.c	MT6370 PMU FLED Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_BLED	mt6370_pmu_bled.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_bled.c	MT6370 PMU BLED Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_RGBLED	mt6370_pmu_rgbled.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_rgbled.c	MT6370 PMU RGBLED Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_CHARGER	mt6370_pmu_charger.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_charger.c	MT6370 PMU Charger Part
+drivers/misc/mediatek/pmic/mt6370/Makefile	CONFIG_MT6370_PMU_CHARGER	mt6370_pmu_charger_gm20.o	drivers/misc/mediatek/pmic/mt6370/mt6370_pmu_charger_gm20.c	MT6370 PMU Charger Part
+drivers/misc/mediatek/pmic/mt6390/v1/Makefile	CONFIG_MTK_CHARGER	mt6390_charger.o	drivers/misc/mediatek/pmic/mt6390/v1/mt6390_charger.c	
+drivers/misc/mediatek/pmic/mt6390/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6390	pmic.o	drivers/misc/mediatek/pmic/mt6390/v1/pmic.c	MediaTek PMIC MT6390 Driver
+drivers/misc/mediatek/pmic/mt6390/v1/Makefile	CONFIG_MTK_PMIC_CHIP_MT6390	pmic_common.o	drivers/misc/mediatek/pmic/mt6390/v1/pmic_common.c	MediaTek PMIC MT6390 Driver
+drivers/misc/mediatek/pmic/mt6390/v1/Makefile	CONFIG_MTK_CHARGER	pmic_chr_type_det_v2.o	drivers/misc/mediatek/pmic/mt6390/v1/pmic_chr_type_det_v2.c	
+drivers/misc/mediatek/pmic/mt6390/v1/Makefile	obj-y	pmic_ipi.o	drivers/misc/mediatek/pmic/mt6390/v1/pmic_ipi.c	
+drivers/misc/mediatek/pmic/mt6390/v1/Makefile	obj-y	mt6390_gauge.o	drivers/misc/mediatek/pmic/mt6390/v1/mt6390_gauge.c	
+drivers/power/supply/mediatek/battery/Makefile	CONFIG_FUEL_GAUGE_BQ27Z561	bq27z561_fg.o	drivers/power/supply/mediatek/battery/bq27z561_fg.c	TI bq27z561 battery gauge driver
+drivers/power/supply/mediatek/battery/Makefile	obj-y	mtk_battery.o	drivers/power/supply/mediatek/battery/mtk_battery.c	
+drivers/power/supply/mediatek/battery/Makefile	obj-y	mtk_power_misc.o	drivers/power/supply/mediatek/battery/mtk_power_misc.c	
+drivers/power/supply/mediatek/battery/Makefile	obj-y	mtk_gauge_coulomb_service.o	drivers/power/supply/mediatek/battery/mtk_gauge_coulomb_service.c	
+drivers/power/supply/mediatek/battery/Makefile	obj-y	mtk_gauge_class.o	drivers/power/supply/mediatek/battery/mtk_gauge_class.c	
+drivers/power/supply/mediatek/battery/Makefile	obj-y	mtk_battery_recovery.o	drivers/power/supply/mediatek/battery/mtk_battery_recovery.c	
+drivers/power/supply/mediatek/battery/Makefile	obj-y	mtk_battery_core.o	drivers/power/supply/mediatek/battery/mtk_battery_core.c	

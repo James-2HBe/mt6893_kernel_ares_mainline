@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# ares (MT6893) 厂商外设驱动 Kconfig 条目（第 2 轮：按实机参数 / 主线框架重写）
+# 放置：整体追加到 drivers/misc/Kconfig（由 apply.sh 自动完成）。
+# 依赖均为主线 =y 的基础设施，不引入任何 4.14 MTK 私有符号。
+#
+# ⚠ 关于 REGMAP_I2C（第 5 轮修复，务必保留这段约定）
+#   本片段**不对 REGMAP_I2C 写任何 depends on / select**。原因：目标内核树
+#   （尤其 mt6893_kernel_ares_mainline 这类已自带部分厂商驱动的树）可能已经有
+#   一处同名的 `config REGULATOR_WL2866D ... select REGMAP_I2C`。Kconfig 允许
+#   同一符号在多个 Kconfig 文件重复定义并**合并属性**：若两处合并后出现
+#   「A select B」+「A depends on B」，就会触发
+#       error: recursive dependency detected!
+#       symbol REGMAP_I2C is selected by REGULATOR_WL2866D
+#       symbol REGULATOR_WL2866D depends on REGMAP_I2C
+#   而 REGMAP_I2C 在主线是无 prompt 的 tristate，本来就只能被 select，
+#   对它写 depends on 本身就是错的（用户也无法手工打开）。
+#   所需基础设施由 ares_defconfig.fragment 的 `CONFIG_REGMAP_I2C=y` 保证，
+#   auto_install.sh 会把该行注入 defconfig；9 个驱动编译因此不受影响。
+#   若目标树里那处同名定义自身也同时写了 depends on + select，
+#   用 tools/fix_kconfig_recursion.py <内核树> 一键消除（安装脚本会自动调用）。
+
+menu "Xiaomi ares (MT6893) vendor peripherals"
+	depends on ARCH_MEDIATEK || COMPILE_TEST
+
+config REGULATOR_WL2866D
+	tristate "Will Semiconductor WL2866D camera LDO"
+	depends on I2C && REGULATOR
+	help
+	  ares 相机 LDO（wl2866d1/wl2866d2，2 颗 × 4 路）。
+	  寄存器/电压换算来自官方 4.14 源码，按主线 regulator/regmap 重写。
+	  需要 CONFIG_REGMAP_I2C=y（本包 defconfig 片段已含）。
+
+config LEDS_AW2028
+	tristate "Awinic AW2028 3-channel RGB LED"
+	depends on I2C && LEDS_CLASS
+	help
+	  三通道 LED。寄存器组与主线 drivers/leds/leds-aw2013.c 完全一致
+	  （已逐项核对 RSTR 0x00/GCR 0x01/LCTR 0x30/LCFG 0x31+x/PWM 0x34+x），
+	  并加入 0x33 chip-id 校验。ares 该节点默认注释（实机未贴装）。
+	  需要 CONFIG_REGMAP_I2C=y（本包 defconfig 片段已含）。
+
+config HAPTIC_AW8697
+	tristate "Awinic AW8697 linear haptic (mainline ff-memless)"
+	depends on I2C && INPUT
+	select INPUT_FF_MEMLESS
+	help
+	  线性马达，标准 input/ff-memless 力反馈接口（FF_RUMBLE）。
+	  全部寄存器与 vib_* 校准值来自官方 aw8697_reg.h + ares 设备树，无占位。
+	  注意与主线 aw86927 是不同芯片（CHIPID 0x97 vs 0x9270），不可只加
+	  compatible 复用。需要 CONFIG_REGMAP_I2C=y（本包 defconfig 片段已含）。
+
+config KEYBOARD_ARES_GAMEKEY
+	tristate "Xiaomi ares pop-up gamekey (shoulder keys)"
+	depends on INPUT && GPIOLIB
+	help
+	  弹出式肩键：实机 key_left/right = pio111/112，hall = pio4/5。
+	  由 DT 标准化层提供标准 key-gpios / hall-gpios。
+
+config ET7480_AUDIOSWITCH
+	tristate "ET7480 audio path switch (pinctrl based)"
+	depends on I2C && PINCTRL
+	help
+	  按厂商 dts 的 uart_enable/uart_disable 两个 pinctrl 状态切换通路，
+	  通过 sysfs et7480_switch 控制；不猜寄存器。
+
+config NFC_ST21NFC_ARES
+	tristate "ST21NFC I2C passthrough (/dev/st21nfc)"
+	depends on I2C && GPIOLIB
+	help
+	  保留 Android HAL 的 /dev/st21nfc + read/write/poll/ioctl 契约；
+	  实机 reset/irq = pio10/11，经 DT 标准化为 reset-gpios/irq-gpios。
+
+config CHARGER_XMUSB350
+	tristate "Xiaomi XMUSB350 USB charge detection"
+	depends on I2C && POWER_SUPPLY && GPIOLIB
+	help
+	  注册 USB charger power_supply，读取实机 en_bc12/en_hvdcp/en_intb/
+	  en_sleep 与 pio28/205/204/29/110 GPIO。寄存器地址官方未开源，
+	  以 DT 属性 xm,status-reg 可配，不虚构。
+
+config SPI_GF3658
+	tristate "Goodix GF3658 fingerprint (mainline HAL contract)"
+	depends on SPI && INPUT && GPIOLIB && REGULATOR
+	help
+	  完整移植内核侧 HAL 契约：/dev/goodix_fp + 18 个 GF_IOC_* ioctl +
+	  poll/read/write/fasync 事件（取代私有 netlink）+ 官方 REE SPI 协议
+	  (0xF0/0xF1) + gpiod 复位/中断 + regulator 电源。
+	  TEE TA 内的指纹采集不属内核职责，无需移植。
+
+config TOUCHSCREEN_GT9886
+	tristate "Goodix GT9886/GT9896S touchscreen (official GTX8 protocol)"
+	depends on I2C && INPUT && GPIOLIB && REGULATOR
+	help
+	  按官方 ares-r-oss 真实协议实现的可用触控驱动：0x824E 坐标帧、
+	  BYTES_PER_COORD=8、coord_sta/checksum/pen/key、0x30F0 doze 握手、
+	  官方 DT 参数（1080x2280/10 点/irq-flags=2），主线 i2c+input-mt。
+	  实机 BOM 由 k6893v1_64_defconfig 确认为 GT9886/GT9896S。
+
+endmenu

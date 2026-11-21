@@ -1,0 +1,1 @@
+savedcmd_et7480-audioswitch.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o et7480-audioswitch.ko et7480-audioswitch.o et7480-audioswitch.mod.o .module-common.o

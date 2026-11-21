@@ -1,0 +1,9 @@
+regulator-wl2866d.o
+leds-aw2028.o
+haptic-aw8697.o
+input-gamekey.o
+et7480-audioswitch.o
+st21nfc.o
+xmusb350-charger.o
+gf3658-spi.o
+touchscreen-gt9886.o

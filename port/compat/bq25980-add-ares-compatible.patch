@@ -1,0 +1,17 @@
+# 67W 双电荷泵：ares 板级 dts 用 ti,bq2597x-master / ti,bq2597x-slave，
+# 主线 bq25980 属同族，补两条 compatible 即可复用（无需搬 MTK 私有 charger 框架）。
+# 注意 bq2597x 与 bq25980 寄存器差异需真机验证。
+# 由 make_compat_patches.py 生成；源内核树不被修改。
+# 用法: git apply <本补丁>
+
+--- a/drivers/power/supply/bq25980_charger.c
++++ b/drivers/power/supply/bq25980_charger.c
+@@ -1275,6 +1275,8 @@
+ 
+ static const struct of_device_id bq25980_of_match[] = {
+ 	{ .compatible = "ti,bq25980", .data = (void *)BQ25980 },
++	{ .compatible = "ti,bq2597x-master", .data = (void *)BQ25980 },
++	{ .compatible = "ti,bq2597x-slave", .data = (void *)BQ25980 },
+ 	{ .compatible = "ti,bq25975", .data = (void *)BQ25975 },
+ 	{ .compatible = "ti,bq25960", .data = (void *)BQ25960 },
+ 	{ },

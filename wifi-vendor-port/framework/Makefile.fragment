@@ -1,0 +1,33 @@
+# B 类（clk/iommu/devfreq）框架符号接线 —— Makefile 片段
+# 复制 solution/framework-symbols.c 与 compat/mtk_framework_compat.h 到目标树后使用。
+#
+#   cp solution/framework-symbols.c   drivers/misc/mediatek/ares_framework/framework-symbols.c
+#   cp compat/mtk_framework_compat.h  drivers/misc/mediatek/ares_framework/mtk_framework_compat.h
+#   并调整 framework-symbols.c 顶部 include 为 "mtk_framework_compat.h"
+#
+# 然后把下面两行并到对应目录的 Makefile：
+
+obj-$(CONFIG_MTK_FRAMEWORK_SYMBOLS)	+= framework-symbols.o
+
+# 若按上游布局把头集中放在 compat/，追加（可选）：
+# ccflags-$(CONFIG_MTK_FRAMEWORK_SYMBOLS)	+= -I$(src)/../../compat
+
+# ---------------------------------------------------------------------
+# 重要：framework/vendor/ 下的 4.14 私有驱动 **默认不参与编译**。
+#   路径 A（推荐）：目标树使用 7.3.3 主线框架：
+#     drivers/clk/mediatek/clk-mtk.c + clk-mux.c
+#     drivers/memory/mtk-smi.c
+#     drivers/iommu/mtk_iommu.c
+#     drivers/soc/mediatek/mtk-dvfsrc.c
+#     drivers/regulator/mtk-dvfsrc-regulator.c
+#     drivers/pmdomain/mediatek/mtk-pm-domains.c
+#   只需本文件提供的 framework-symbols.o 即可消除链接期 undefined symbol。
+#
+#   路径 B：目标树自行移植了整套 4.14 私有框架（clk-mt6873-pg.c /
+#     pseudo_m4u.c / helio-dvfsrc-opp*.c）。此时那些 .c 里的强符号会覆盖
+#     framework-symbols.o 的 __weak 定义，两者共存无 multiple definition。
+#     路径 B 需自行完成 4.14 -> 7.3 的 API 适配，不在本包验证范围。
+# ---------------------------------------------------------------------
+
+# 与 stage-4 的 platform-symbols.c 同时编入（aee_rr_rec_clk / buck_set_mode）：
+# obj-$(CONFIG_MTK_PLATFORM_SYMBOLS)	+= platform-symbols.o

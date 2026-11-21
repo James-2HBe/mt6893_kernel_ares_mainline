@@ -1,0 +1,16 @@
+# 电量计：主线已有 ti,bq27z561 / BQ27Z561 芯片定义，
+# ares 板级 dts 用了带总线后缀的 ti,bq27z561_i2c0 / _i2c9，补两条别名即可复用。
+# 由 make_compat_patches.py 生成；源内核树不被修改。
+# 用法: git apply <本补丁>
+
+--- a/drivers/power/supply/bq27xxx_battery_i2c.c
++++ b/drivers/power/supply/bq27xxx_battery_i2c.c
+@@ -290,6 +290,8 @@
+ 	{ .compatible = "ti,bq27441" },
+ 	{ .compatible = "ti,bq27621" },
+ 	{ .compatible = "ti,bq27z561" },
++	{ .compatible = "ti,bq27z561_i2c0" },
++	{ .compatible = "ti,bq27z561_i2c9" },
+ 	{ .compatible = "ti,bq28z610" },
+ 	{ .compatible = "ti,bq34z100" },
+ 	{ .compatible = "ti,bq78z100" },

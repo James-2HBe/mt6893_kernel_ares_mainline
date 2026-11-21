@@ -1,0 +1,50 @@
+make: Entering directory '/workspace/linux-7.3.3'
+make[1]: Entering directory '/workspace/ares-7.3.3/port'
+  CC [M]  regulator-wl2866d.o
+  CC [M]  leds-aw2028.o
+  CC [M]  haptic-aw8697.o
+  CC [M]  input-gamekey.o
+  CC [M]  et7480-audioswitch.o
+  CC [M]  st21nfc.o
+  CC [M]  xmusb350-charger.o
+  CC [M]  gf3658-spi.o
+  CC [M]  touchscreen-gt9886.o
+  MODPOST Module.symvers
+  CC [M]  regulator-wl2866d.mod.o
+  CC [M]  .module-common.o
+  LD [M]  regulator-wl2866d.ko
+  CC [M]  leds-aw2028.mod.o
+  LD [M]  leds-aw2028.ko
+  CC [M]  haptic-aw8697.mod.o
+  LD [M]  haptic-aw8697.ko
+  CC [M]  input-gamekey.mod.o
+  LD [M]  input-gamekey.ko
+  CC [M]  et7480-audioswitch.mod.o
+  LD [M]  et7480-audioswitch.ko
+  CC [M]  st21nfc.mod.o
+  LD [M]  st21nfc.ko
+  CC [M]  xmusb350-charger.mod.o
+  LD [M]  xmusb350-charger.ko
+  CC [M]  gf3658-spi.mod.o
+  LD [M]  gf3658-spi.ko
+  CC [M]  touchscreen-gt9886.mod.o
+  LD [M]  touchscreen-gt9886.ko
+make[1]: Leaving directory '/workspace/ares-7.3.3/port'
+make: Leaving directory '/workspace/linux-7.3.3'
+
+=== 编译结果 ===
+  make exit : 0
+  生成 .ko  : 9
+  error 数  : 0
+  warning 数: 0
+
+=== 产出的模块 ===
+  /workspace/ares-7.3.3/port/et7480-audioswitch.ko
+  /workspace/ares-7.3.3/port/gf3658-spi.ko
+  /workspace/ares-7.3.3/port/haptic-aw8697.ko
+  /workspace/ares-7.3.3/port/input-gamekey.ko
+  /workspace/ares-7.3.3/port/leds-aw2028.ko
+  /workspace/ares-7.3.3/port/regulator-wl2866d.ko
+  /workspace/ares-7.3.3/port/st21nfc.ko
+  /workspace/ares-7.3.3/port/touchscreen-gt9886.ko
+  /workspace/ares-7.3.3/port/xmusb350-charger.ko

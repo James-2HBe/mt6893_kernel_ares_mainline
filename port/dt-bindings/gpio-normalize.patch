@@ -1,0 +1,59 @@
+--- a/mt6893-xiaomi-ares.dts
++++ b/mt6893-xiaomi-ares-mainline.dts
+@@ -397,6 +397,8 @@
+ 	/* [gamekey] */
+ 	gamekey: gamekey {
+ 		compatible = "xm,gamekey";
++			key-gpios = <&pio 111 0x00>, <&pio 112 0x00>;	/* key_left/key_right */
++			hall-gpios = <&pio 4 0x00>, <&pio 5 0x00>;	/* hall_left/hall_right */
+ 	};
+ 
+ 	/* [nfc_default] */
+@@ -1065,6 +1067,8 @@
+ 	#size-cells = <0>;
+ 	fingerprint@0 {
+ 		compatible = "goodix,goodix-fp";
++			reset-gpios = <&pio 14 0x0>;	/* &goodix_fp pinctrl GPIO14 */
++			irq-gpios = <&pio 15 0x0>;	/* &goodix_fp fpc,gpio_irq = <&pio 15 0> */
+ 		reg = <0>;
+ 		spi-max-frequency = <8000000>;
+ 		netlink-event = <30>;
+@@ -1483,6 +1487,8 @@
+ 	status = "ok";
+ 	aw8697_haptic@5a {
+ 		compatible = "awinic,aw8697_haptic";
++			reset-gpios = <&pio 129 0>;	/* 官方 reset-gpio = <&pio 129 0> */
++			irq-gpios = <&pio 22 0>;	/* 官方 irq-gpio = <&pio 22 0> */
+ 		reg = <0x5A>;
+ 		reset-gpio = <&pio 129 0>;
+ 		irq-gpio = <&pio 22 0>;
+@@ -1692,6 +1698,8 @@
+ 
+ 	gt9886@5d {
+ 		compatible = "goodix,gt9886";
++			reset-gpios = <&pio 20 0x0>;	/* 官方 goodix,reset-gpio = <&pio 20 0x0> */
++			irq-gpios = <&pio 21 0x0>;	/* 官方 goodix,irq-gpio = <&pio 21 0x0> */
+ 		reg = <0x5d>;
+ 		status = "ok";
+ 		interrupt-parent = <&pio>;
+@@ -2835,6 +2843,8 @@
+ &i2c6 {
+     st21nfc@08 {
+       compatible = "mediatek,nfc";
++      	reset-gpios = <&pio 10 0x0>;	/* 官方 gpio-rst-std = <&pio 10 0x0> */
++      	irq-gpios = <&pio 11 0x00>;	/* 官方 gpio-irq-std = <&pio 11 0x00> */
+       reg = <0x08>;
+       gpio-irq = <11>;
+       gpio-irq-std = <&pio 11 0x00>;
+@@ -4041,6 +4051,11 @@
+ 	};
+ 	xmusb350-charger@35 {
+ 		compatible = "xm,xmusb350-charger";
++			reset-gpios = <&pio 28 0x00>;	/* xm,xmusb350_rst_gpio */
++			irq-gpios = <&pio 110 0x00>;	/* interrupts = <110 ...> -> gpiod */
++			sda-gpios = <&pio 205 0x00>;	/* xm,xmusb350_sda_gpio */
++			scl-gpios = <&pio 204 0x00>;	/* xm,xmusb350_scl_gpio */
++			therm-gpios = <&pio 29 0x00>;	/* mi,connect_therm */
+ 		reg = <0x35>;
+ 		interrupt-parent = <&pio>;
+ 		interrupts = <110 IRQ_TYPE_EDGE_FALLING 110 0>;

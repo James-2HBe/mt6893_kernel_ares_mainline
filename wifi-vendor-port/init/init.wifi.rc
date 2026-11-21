@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: GPL-2.0
+# Android init.rc 片段：在 WiFi/connectivity 驱动加载【之前】从原厂 vendor 提取固件。
+# 放到 /vendor/etc/init/ 或并入 init.vendor.rc。
+#
+# 时序说明：wlan / conninfra / wmt 驱动在 probe 阶段会 request_firmware()，
+# 固件必须在它们之前就位，否则 probe 直接失败（不会自动重试到文件出现）。
+# 因此放在 early-init（此时 /vendor 已由 first-stage init 挂载）最稳妥。
+
+on early-init
+    # 建 /lib/firmware（主线 request_firmware 默认搜索路径）
+    mkdir /lib 0755 root root
+    mkdir /lib/firmware 0755 root root
+
+on init
+    # 从原厂 vendor 分区提取 WiFi/combo 固件（原名，含 _hdr.bin / WMT.cfg）
+    exec u:r:vendor_toolbox:s0 root root -- /vendor/bin/extract-wifi-firmware.sh
+
+# 若 /lib/firmware 只读、脚本退化到 /vendor/lib/firmware，则在内核 cmdline 追加：
+#   firmware_class.path=/vendor/lib/firmware
+# （放在 BoardConfig.mk 的 BOARD_KERNEL_CMDLINE 或 bootimg cmdline）
+
+# 驱动加载方式（二选一，按目标树形态）：
+#   A) built-in：随 Image 启动，靠 DT status=okay 自动 probe，无需 insmod
+#   B) module：  on post-fs-data 里 insmod wlan 相关 .ko（本包适配目标为 built-in）
+# on post-fs-data
+#     insmod /vendor/lib/modules/wmt_chrdev_wifi.ko
+
+# 用户态：主线用 wpa_supplicant + 标准 nl80211（不是 MTK 私有 WEXT 驱动的命令），
+# 私有栈仍导出 /dev/wmtWifi 等字符节点供 vendor HAL 做 NVRAM/校准注入。
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
+    -g@android:wpa_wlan0
+    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
+    socket wpa_wlan0 dgram 660 wifi wifi
+    class main
+    user wifi
+    group wifi inet
+    oneshot

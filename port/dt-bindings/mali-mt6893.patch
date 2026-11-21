@@ -1,0 +1,32 @@
+From: ares-7.3.3-port <no-reply@localhost>
+Subject: [PATCH] dt-bindings: gpu: arm,mali-bifrost: add mediatek,mt6893-mali
+
+MT6893 (Dimensity 1100) integrates a Mali-G77 (Valhall, Job Manager).
+The ares board devicetree describes it as the two-string pair
+
+    compatible = "mediatek,mt6893-mali", "arm,mali-valhall-jm";
+
+so that the mainline panfrost driver (which already has an
+"arm,mali-valhall-jm" of_match entry) can bind without any driver-side
+change. The schema's Valhall oneOf enum so far only lists other MediaTek
+SoCs, so dtbs_check rejects the SoC-specific string. Add it.
+
+No other schema change is needed: the node supplies reg, three
+GIC_SPI interrupts, interrupt-names, clocks, clock-names, mali-supply
+and operating-points-v2, all of which arm,mali-bifrost.yaml allows.
+
+Signed-off-by: ares-7.3.3-port <no-reply@localhost>
+---
+ Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+@@ -43,6 +43,7 @@
+       - items:
+           - enum:
+               - allwinner,sun55i-a523-mali
++              - mediatek,mt6893-mali
+               - mediatek,mt8188-mali
+               - mediatek,mt8192-mali
+               - mediatek,mt8370-mali

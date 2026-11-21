@@ -1,0 +1,1 @@
+savedcmd_touchscreen-gt9886.ko := ld.lld -r -EL  -maarch64elf -z norelro -z noexecstack --build-id=sha1  -T /workspace/linux-7.3.3/scripts/module.lds -o touchscreen-gt9886.ko touchscreen-gt9886.o touchscreen-gt9886.mod.o .module-common.o

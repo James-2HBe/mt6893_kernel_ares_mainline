@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# ares (MT6893) B 类驱动 — 外部模块编译清单
+# 用法：make -C <linux-7.3.3> LLVM=1 ARCH=arm64 M=$(pwd) modules
+# 由 build.sh 驱动；接入内核树时按 integration/ 里的片段拆分到各子系统 Makefile。
+
+# 9 个 B 类驱动（全部按主线 API 重写，arm64 真编译通过）
+obj-m += regulator-wl2866d.o
+obj-m += leds-aw2028.o
+obj-m += haptic-aw8697.o
+obj-m += input-gamekey.o
+obj-m += et7480-audioswitch.o
+obj-m += st21nfc.o
+obj-m += xmusb350-charger.o
+obj-m += gf3658-spi.o
+obj-m += touchscreen-gt9886.o

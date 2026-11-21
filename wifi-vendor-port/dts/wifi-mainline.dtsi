@@ -1,0 +1,212 @@
+/*
+ * MT6893 (Xiaomi ares / chopin) WiFi/连接子系统 —— 主线格式重写版
+ * SPDX-License-Identifier: GPL-2.0
+ *
+ * 来源: seriaTvT/kernel_mt6893 @ c651f31e (chopin_kvm, 4.14 vendor kernel)
+ *   - arch/arm64/boot/dts/mediatek/mt6893.dts        (SoC 级节点 + 保留内存)
+ *   - arch/arm64/boot/dts/mediatek/mt6893.dtsi       (dtb 反编译版，consys/wifi/bt 本体)
+ *   - arch/arm64/boot/dts/mediatek/*-mt6893*.dtsi    (板级覆盖)
+ *
+ * 与 dts/wifi-private-nodes.dtsi（原文摘录，含 dtb 反编译数字 phandle）的区别：
+ *   1. 所有 <0xNN> 数字 phandle 还原为 &label 引用（映射见本文件末尾 MAP 表）；
+ *   2. 删除 phandle = <...> 反编译产物（dtc 会重新分配）；
+ *   3. 节点统一放进 / { ... } 与 &soc 结构，label 化以便板级 dts 引用/覆盖；
+ *   4. reg 用主线惯用的 <0 ADDR 0 SIZE> 分组排版（值不变）；
+ *   5. compatible 保持 MTK 私有串 —— 因为消费方是【移植过来的私有驱动】，
+ *      不是主线任何 binding（主线 7.3.3 无 consys/wifi binding，故 dtbs_check
+ *      对这些节点会报 "no schema"，属预期，见 docs/NATIVE-NETWORKING.md）。
+ *
+ * 【接线前提】本片段依赖目标树「已修好的 WiFi 基线」提供以下 label：
+ *   &scpsys          - 时钟控制器（clocks = <&scpsys 1>）
+ *   &main_pmic       - MT6359 PMIC 主节点
+ *   &mt_pmic_vcn13_ldo_reg / &mt_pmic_vcn18_ldo_reg
+ *   &mt_pmic_vcn33_1_bt_ldo_reg / &mt_pmic_vcn33_1_wifi_ldo_reg
+ *   &mt_pmic_vcn33_2_wifi_ldo_reg
+ *   &pio / &infracfg_ao  - pinctrl / infracfg（板级 msdc1 覆盖用）
+ *   GIC_SPI / IRQ_TYPE_LEVEL_HIGH - 需 include <dt-bindings/interrupt-controller/arm-gic.h>
+ * 若目标树用的是别的 label 名，改本文件顶部 ALIASES 区即可，不必逐个节点改。
+ *
+ * 【消费方式】在板级 dts 里 #include "wifi-mainline.dtsi"，
+ *   再按需 &consys { status = "okay"; }; 覆盖。固件由 init 从 vendor 提取，
+ *   见 init/extract-wifi-firmware.sh。
+ */
+
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	/* ---- 保留内存（conninfra EMI / WiFi FW / GPS）---- */
+	reserved-memory {
+		#address-space = <0>;
+		#size-cells = <2>;
+		ranges;
+
+		/* MAP: 板级 phandle <0xed> */
+		consys_reserve_memory: consys-reserve-memory {
+			compatible = "mediatek,consys-reserve-memory";
+			no-map;
+			size = <0 0x450000>;
+			alignment = <0 0x100000>;
+			alloc-ranges = <0 0x50000000 0 0x40000000>;
+		};
+
+		wifi_reserve_memory: wifi-reserve-memory {
+			compatible = "shared-dma-pool";
+			no-map;
+			size = <0 0xF20000>;
+			alignment = <0 0x1000000>;
+			alloc-ranges = <0 0x40000000 0 0x80000000>;
+		};
+
+		gps_reserve_memory: gps-reserve-memory {
+			compatible = "mediatek,gps-reserve-memory";
+			no-map;
+			size = <0 0x100000>;
+			alignment = <0 0x100000>;
+			alloc-ranges = <0 0x40000000 0 0x80000000>;
+		};
+	};
+
+	/* ---- BTIF（BT/STP 传输）---- */
+	btif: btif@1100c000 {
+		compatible = "mediatek,btif";
+		reg = <0 0x1100c000 0 0x1000>,
+		      <0 0x11000d80 0 0x80>,
+		      <0 0x11000e00 0 0x80>;
+		interrupts = <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&infracfg_ao INFRACFG_AO_BTIF_CG>,
+			 <&infracfg_ao INFRACFG_AO_AP_DMA_CG>;
+		clock-names = "btifc", "apdmac";
+		status = "disabled";
+	};
+
+	/* ---- MSDC1 (SDIO host) 与 TOP 寄存器 ----
+	 * 注：MT6893 WiFi 主数据通路是 AXI/conninfra（见 config/Kconfig-Makefile-notes.md），
+	 *     msdc1 是同 combo 的 SDIO 参考，按原厂保留但默认 disabled。
+	 */
+	msdc1: msdc@11240000 {
+		compatible = "mediatek,msdc";
+		reg = <0 0x11240000 0 0x1000>;
+		interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
+		status = "disabled";
+	};
+
+	msdc1_top: msdc1_top@11e10000 {
+		compatible = "mediatek,msdc1_top";
+		reg = <0 0x11e10000 0 0x1000>;
+		status = "disabled";
+	};
+
+	/* ---- EMI 控制器（保留内存/MEM protection，conninfra 依赖）---- */
+	emicen: emicen@10219000 {
+		compatible = "mediatek,mt6885-emicen", "mediatek,common-emicen";
+		reg = <0 0x10219000 0 0x1000>,
+		      <0 0x1021d000 0 0x1000>;
+		mediatek,emi-reg = <&emichn>;
+		a2d_disph = <14>;
+		status = "disabled";
+	};
+
+	emiisu: emiisu {
+		compatible = "mediatek,mt6885-emiisu", "mediatek,common-emiisu";
+		ctrl_intf = <0>;
+		status = "disabled";
+	};
+
+	emimpu: emimpu@10226000 {
+		compatible = "mediatek,mt6885-emimpu", "mediatek,common-emimpu";
+		reg = <0 0x10226000 0 0x1000>,
+		      <0 0x10225000 0 0x1000>;
+		mediatek,emi-reg = <&emicen>;
+		interrupts = <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>;
+		region_cnt = <32>;
+		domain_cnt = <16>;
+		addr_align = <16>;
+		ap_region = <31>;
+		ap_apc = <0 5 5 5 2 0 6 5>, <0 0 5 0 0 0 5 5>;
+		dump = <0x1f0 0x1f8 0x1fc>;
+		clear = <0x160 0xffffffff 16>, <0x200 0x00000003 16>, <0x1f0 0x80000000 1>;
+		clear_md = <0x1fc 0x80000000 1>;
+		ctrl_intf = <1>;
+		slverr = <0>;
+		status = "disabled";
+	};
+
+	emichn: emichn@10235000 {
+		compatible = "mediatek,mt6885-emichn", "mediatek,common-emichn";
+		reg = <0 0x10235000 0 0x1000>,
+		      <0 0x10245000 0 0x1000>,
+		      <0 0x10255000 0 0x1000>,
+		      <0 0x10265000 0 0x1000>;
+		status = "disabled";
+	};
+
+	/* ---- CONSYS 主设备（conninfra 驱动匹配 mediatek,mt6893-consys）---- */
+	consys: consys@18000000 {
+		compatible = "mediatek,mt6893-consys";
+		/* 18 组寄存器窗口，值与原厂 dtb 完全一致，仅重排版 */
+		reg = <0 0x18000000 0 0x1000>, <0 0x18001000 0 0x1000>,
+		      <0 0x18060000 0 0x10000>, <0 0x10001000 0 0x1000>,
+		      <0 0x10007000 0 0x1000>, <0 0x10006000 0 0x1000>,
+		      <0 0x1020e000 0 0x1000>, <0 0x18005000 0 0x1000>,
+		      <0 0x18003000 0 0x1000>, <0 0x18050000 0 0x10000>,
+		      <0 0x10005000 0 0x1000>, <0 0x18004000 0 0x1000>,
+		      <0 0x18070000 0 0x10000>, <0 0x18002000 0 0x1000>,
+		      <0 0x11ea0000 0 0x1000>, <0 0x1800f000 0 0x1000>;
+		clocks = <&scpsys 1>;              /* MAP: 原 <&scpsys 0x1> */
+		clock-names = "conn";
+		memory-region = <&consys_reserve_memory>;  /* MAP: 原 <0xed> */
+		pmic = <&main_pmic>;               /* MAP: 原 <0x108> */
+		vcn13-supply = <&mt_pmic_vcn13_ldo_reg>;
+		vcn18-supply = <&mt_pmic_vcn18_ldo_reg>;
+		vcn33_1_bt-supply   = <&mt_pmic_vcn33_1_bt_ldo_reg>;    /* MAP: 原 <0x11e> */
+		vcn33_1_wifi-supply = <&mt_pmic_vcn33_1_wifi_ldo_reg>;  /* MAP: 原 <0x11f> */
+		vcn33_2_wifi-supply = <&mt_pmic_vcn33_2_wifi_ldo_reg>;  /* MAP: 原 <0x127> */
+		status = "okay";
+	};
+
+	/* ---- WiFi 设备（wlan 驱动匹配 mediatek,wifi）---- */
+	wifi: wifi@18000000 {
+		compatible = "mediatek,wifi";
+		reg = <0 0x18000000 0 0x700000>;
+		/* 原 <0x00 0x177 0x04 0x00 0x17a 0x04> → GIC_SPI 375/378, LEVEL_HIGH */
+		interrupts = <GIC_SPI 375 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 378 IRQ_TYPE_LEVEL_HIGH>;
+		memory-region = <&wifi_reserve_memory>;
+		flavor_bin = "a";
+		status = "okay";
+	};
+
+	/* ---- BT 设备（同 combo 芯片）---- */
+	bt: bt@18000000 {
+		compatible = "mediatek,bt";
+		flavor_bin = "a";
+		reg = <0 0x18000000 0 0x1000>, <0 0x18001000 0 0x1000>,
+		      <0 0x18050000 0 0x1000>, <0 0x18060000 0 0x1000>,
+		      <0 0x18800000 0 0x1000>, <0 0x18812000 0 0x1000>,
+		      <0 0x10001000 0 0x1000>;
+		/* 原 <0x00 0x178 0x04 0x00 0x179 0x04> → GIC_SPI 376/377 */
+		interrupts = <GIC_SPI 376 IRQ_TYPE_LEVEL_HIGH>,
+			     <GIC_SPI 377 IRQ_TYPE_LEVEL_HIGH>;
+		status = "disabled";
+	};
+};
+
+/*
+ * ===== 数字 phandle / 裸中断号 还原映射表（供审计）=====
+ *  <0xed>  -> &consys_reserve_memory   (板级 consys-reserve-memory, phandle 0xed)
+ *  <0x108> -> &main_pmic               (mt6359-pmic)
+ *  <0x11e> -> &mt_pmic_vcn33_1_bt_ldo_reg    (ldo_vcn33_1_bt)
+ *  <0x11f> -> &mt_pmic_vcn33_1_wifi_ldo_reg  (ldo_vcn33_1_wifi)
+ *  <0x127> -> &mt_pmic_vcn33_2_wifi_ldo_reg  (ldo_vcn33_2_wifi)
+ *  <0x198> -> consys 节点自身 phandle（删除，dtc 重分配）
+ *  <0x199> -> wifi 节点自身 phandle（删除）
+ *  <0x37>  -> bt 节点自身 phandle（删除）
+ *  wifi irq 0x177/0x17a(4) -> GIC_SPI 375/378 IRQ_TYPE_LEVEL_HIGH
+ *  bt   irq 0x178/0x179(4) -> GIC_SPI 376/377 IRQ_TYPE_LEVEL_HIGH
+ *  clocks <&scpsys 0x1>     -> <&scpsys 1>
+ * 注：dtb 反编译的 3-cell 中断里第 1 个 0 = GIC_SPI，第 3 个 4 = LEVEL_HIGH，
+ *     中间是 IRQ 号（0x177=375），无需减 32（GIC 编号已是 SPI 号）。
+ */

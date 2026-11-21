@@ -1,0 +1,33 @@
+From: ares-7.3.3-port <no-reply@localhost>
+Subject: [PATCH] dt-bindings: usb: mediatek,mtk-xhci: add mediatek,mt6893-xhci
+
+MT6893's USB3 DRD controller exposes its xHCI host as a child node.
+The ares board devicetree describes it with the two-string pair
+
+    compatible = "mediatek,mt6893-xhci", "mediatek,mtk-xhci";
+
+so that the mainline xhci-mtk driver (whose of_match contains the
+generic "mediatek,mtk-xhci" fallback) can bind without any driver-side
+change. The schema's SoC-specific enum so far lists other MediaTek
+SoCs only, so dtbs_check rejects the first string. Add it.
+
+The child node is converted to mainline form: clocks/clock-names use a
+single clk26m fixed-clock with "sys_ck", and vbus-supply /
+vusb33-supply point at the board's fixed regulators. No other schema
+change is needed.
+
+Signed-off-by: ares-7.3.3-port <no-reply@localhost>
+---
+ Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+--- a/Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml
++++ b/Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml
+@@ -25,6 +25,7 @@
+       - enum:
+           - mediatek,mt2701-xhci
+           - mediatek,mt2712-xhci
++          - mediatek,mt6893-xhci
+           - mediatek,mt7622-xhci
+           - mediatek,mt7623-xhci
+           - mediatek,mt7629-xhci

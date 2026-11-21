@@ -1,2 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-source "drivers/misc/mediatek/sensor/2.0/sensorhub/Kconfig"

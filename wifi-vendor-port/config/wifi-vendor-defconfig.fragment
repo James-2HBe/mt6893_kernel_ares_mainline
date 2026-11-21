@@ -1,0 +1,26 @@
+# ============================================================
+# MT6893 原厂 (4.14, chopin_kvm) WiFi/连接子系统 defconfig 开关
+# 来源: arch/arm64/configs/ares_defconfig @ seriaTvT/kernel_mt6893 c651f31e
+# 性质: 【原文摘录】，符号全部是原厂私有 Kconfig（CONFIG_MTK_COMBO_* /
+#       CONFIG_WLAN_DRV_BUILD_IN 等），主线 7.3.3 Kconfig 里不存在。
+# 用途: 供用户后续做主线适配时对照"原厂开了哪些功能开关"。
+#       不可直接喂给主线内核（会被 olddefconfig 丢弃/报未知符号）。
+# 主线已有的通用项: CONFIG_CFG80211=y（原厂也是 y，主线同样有）
+# ============================================================
+CONFIG_MTK_COMBO=y
+CONFIG_MTK_COMBO_CHIP_CONSYS_6893=y
+CONFIG_MTK_COMBO_BT=y
+CONFIG_MTK_COMBO_GPS=y
+CONFIG_MTK_COMBO_WIFI=y
+CONFIG_MTK_DHCPV6C_WIFI=y
+CONFIG_MTK_GPS_SUPPORT=y
+CONFIG_MTK_GPS_EMI=y
+CONFIG_MTK_FMRADIO=y
+CONFIG_MTK_FM_CHIP="MT6635_FM"
+CONFIG_MTK_CONNFEM=y
+CONFIG_MTK_CONNSYS_DEDICATED_LOG_PATH=y
+CONFIG_WLAN_DRV_BUILD_IN=y
+CONFIG_MTK_MD1_SUPPORT=25
+CONFIG_MTK_ECCCI_C2K=y
+CONFIG_MTK_BTIF=y
+CONFIG_MTK_MDDP_SUPPORT=y

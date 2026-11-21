@@ -1,0 +1,204 @@
+/*
+ * MT6893 (Xiaomi ares/chopin) 原厂 WiFi/连接子系统私有 DT 节点摘录
+ * 来源: seriaTvT/kernel_mt6893 @ c651f31e (chopin_kvm)
+ *   arch/arm64/boot/dts/mediatek/mt6893.dts（SoC 级）
+ *   arch/arm64/boot/dts/mediatek/cust_mt6893_msdc.dtsi、ares-mt6893.dtsi（板级覆盖）
+ *
+ * 说明: 本文件是【原文摘录】，不是可直接 include 编译的 dtsi。
+ *   - 节点内引用了大量同仓库的 label/macro（infracfg_ao、pio、GIC_SPI、
+ *     INFRACFG_AO_MSDC1_CG、PINMUX_GPIO* 等），需连同原厂 dts/dtsi 一起看。
+ *   - compatible 全部是 MTK 私有 binding，主线 7.3.3 没有对应驱动匹配；
+ *     这些节点是给用户后续自己做主线适配时对照用的，不是可直接用的主线 DT。
+ *   - #ifdef 等 cpp 条件按原样保留。
+ * 完整原文见同目录 original/ 下的原厂 dts/dtsi 副本。
+ */
+
+/* ===== consys 保留内存（conninfra/EMI 用） =====
+ * 锚点: consys-reserve-memory {
+ * mt6893.dts 起始行: 476
+ */
+		consys-reserve-memory {
+			compatible = "mediatek,consys-reserve-memory";
+			no-map;
+			size = <0 0x450000>;
+			alignment = <0 0x100000>;
+			alloc-ranges = <0 0x50000000 0 0x40000000>;
+		};
+
+/* ===== WiFi 保留内存（wifi_mem / shared-dma-pool） =====
+ * 锚点: wifi_mem: wifi-reserve-memory {
+ * mt6893.dts 起始行: 484
+ */
+		wifi_mem: wifi-reserve-memory {
+			compatible = "shared-dma-pool";
+			no-map;
+			size = <0 0xF20000>;
+			alignment = <0 0x1000000>;
+			alloc-ranges = <0 0x40000000 0 0x80000000>;
+		};
+
+/* ===== GPS 保留内存（同 combo 芯片，WMT 栈共用） =====
+ * 锚点: gps-reserve-memory {
+ * mt6893.dts 起始行: 492
+ */
+		gps-reserve-memory {
+			compatible = "mediatek,gps-reserve-memory";
+			no-map;
+			size = <0 0x100000>;
+			alignment = <0 0x100000>;
+			alloc-ranges = <0 0x40000000 0 0x80000000>;
+		};
+
+/* ===== BTIF（BT/STP 传输，WMT 栈依赖） =====
+ * 锚点: btif: btif@1100c000 {
+ * mt6893.dts 起始行: 720
+ */
+	btif: btif@1100c000 {
+		compatible = "mediatek,btif";
+		/*btif base*/
+		reg = <0 0x1100c000 0 0x1000>,
+			/*btif tx dma base*/
+			<0 0x11000d80 0 0x80>,
+			/*btif rx dma base*/
+			<0 0x11000e00 0 0x80>;
+		/*btif irq, IRQS_Sync ID, btif_irq_b*/
+		interrupts = <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>,
+				   /*btif tx dma irq*/
+				   <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
+				   /*btif rx dma irq*/
+				   <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>;
+		clocks = <&infracfg_ao INFRACFG_AO_BTIF_CG>,
+			   /*btif clock*/
+			   <&infracfg_ao INFRACFG_AO_AP_DMA_CG>;
+		/*ap dma clock*/
+		clock-names = "btifc","apdmac";
+	};
+
+/* ===== MSDC1 = SDIO host（WiFi 走这条总线） =====
+ * 锚点: msdc1: msdc@11240000{
+ * mt6893.dts 起始行: 815
+ */
+	msdc1: msdc@11240000{
+		compatible = "mediatek,msdc";
+		reg = <0 0x11240000 0 0x1000>;
+		interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
+	};
+
+/* ===== MSDC1 TOP 寄存器 =====
+ * 锚点: msdc1_top@11e10000 {
+ * mt6893.dts 起始行: 826
+ */
+	msdc1_top@11e10000 {
+		compatible = "mediatek,msdc1_top";
+		reg = <0 0x11e10000 0 0x1000>;
+	};
+
+/* ===== EMI CEN（保留内存控制器） =====
+ * 锚点: emicen: emicen@10219000 {
+ * mt6893.dts 起始行: 1766
+ */
+	emicen: emicen@10219000 {
+		compatible = "mediatek,mt6885-emicen",
+			     "mediatek,common-emicen";
+		reg = <0 0x10219000 0 0x1000>,
+		      <0 0x1021d000 0 0x1000>;
+		mediatek,emi-reg = <&emichn>;
+		a2d_disph = <14>;
+	};
+
+/* ===== EMI ISU =====
+ * 锚点: emiisu {
+ * mt6893.dts 起始行: 1775
+ */
+	emiisu {
+		compatible = "mediatek,mt6885-emiisu",
+			     "mediatek,common-emiisu";
+		ctrl_intf = <0>;
+	};
+
+/* ===== EMI MPU =====
+ * 锚点: emimpu@10226000 {
+ * mt6893.dts 起始行: 1883
+ */
+	emimpu@10226000 {
+		compatible = "mediatek,mt6885-emimpu",
+			     "mediatek,common-emimpu";
+		reg = <0 0x10226000 0 0x1000>,
+		      <0 0x10225000 0 0x1000>;
+		mediatek,emi-reg = <&emicen>;
+		interrupts = <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>;
+		region_cnt = <32>;
+		domain_cnt = <16>;
+		addr_align = <16>;
+		ap_region = <31>;
+		ap_apc = <0 5 5 5 2 0 6 5>,
+			 <0 0 5 0 0 0 5 5>;
+		dump = <0x1f0 0x1f8 0x1fc>;
+		clear = <0x160 0xffffffff 16>,
+			<0x200 0x00000003 16>,
+			<0x1f0 0x80000000 1>;
+		clear_md = <0x1fc 0x80000000 1>;
+		ctrl_intf = <1>;
+		slverr = <0>;
+	};
+
+/* ===== EMI CHN =====
+ * 锚点: emichn: emichn@10235000 {
+ * mt6893.dts 起始行: 2056
+ */
+	emichn: emichn@10235000 {
+		compatible = "mediatek,mt6885-emichn",
+			     "mediatek,common-emichn";
+		reg = <0 0x10235000 0 0x1000>,
+		      <0 0x10245000 0 0x1000>,
+		      <0 0x10255000 0 0x1000>,
+		      <0 0x10265000 0 0x1000>;
+	};
+
+/* ============================================================
+ * 以下来自 mt6893.dtsi（原厂 dtb 反编译版，故含 phandle/数字引用）
+ * 这是 WiFi 私有设备节点【本体】：consys / wifi / bt / gps
+ * ============================================================ */
+
+/* ===== CONSYS 主设备（mediatek,mt6893-consys）—— conninfra 驱动匹配 =====
+ * mt6893.dtsi 起始行: 5307
+ */
+	consys: consys@18000000 {
+		compatible = "mediatek,mt6893-consys";
+		reg = <0x0 0x18000000 0x0 0x1000 0x0 0x18001000 0x0 0x1000 0x0 0x18060000 0x0 0x10000 0x0 0x10001000 0x0 0x1000 0x0 0x10007000 0x0 0x1000 0x0 0x10006000 0x0 0x1000 0x0 0x1020e000 0x0 0x1000 0x0 0x18005000 0x0 0x1000 0x0 0x18003000 0x0 0x1000 0x0 0x18050000 0x0 0x10000 0x0 0x10005000 0x0 0x1000 0x0 0x18004000 0x0 0x1000 0x0 0x18070000 0x0 0x10000 0x0 0x18002000 0x0 0x1000 0x0 0x11ea0000 0x0 0x1000 0x0 0x1800f000 0x0 0x1000>;
+		clocks = <&scpsys 0x1>;
+		clock-names = "conn";
+		phandle = <0x198>;
+		memory-region = <0xed>;
+		pmic = <0x108>;
+		status = "okay";
+		vcn13-supply = <&mt_pmic_vcn13_ldo_reg>;
+		vcn18-supply = <&mt_pmic_vcn18_ldo_reg>;
+		vcn33_1_bt-supply = <0x11e>;
+		vcn33_1_wifi-supply = <0x11f>;
+		vcn33_2_wifi-supply = <0x127>;
+	};
+
+/* ===== WiFi 设备（mediatek,wifi）—— wlan 驱动匹配，memory-region 指向 wifi_mem =====
+ * mt6893.dtsi 起始行: 5329
+ */
+	wifi: wifi@18000000 {
+		compatible = "mediatek,wifi";
+		reg = <0x0 0x18000000 0x0 0x700000>;
+		interrupts = <0x00 0x177 0x04 0x00 0x17a 0x04>;
+		memory-region = <&wifi_mem>;
+		phandle = <0x199>;
+		flavor_bin = "a";
+		status = "okay";
+	};
+
+/* ===== BT 设备（mediatek,bt），同 combo 芯片 =====
+ * mt6893.dtsi 起始行: 5300
+ */
+	bt: bt@18000000 {
+		compatible = "mediatek,bt";
+		flavor_bin = "a";
+		reg = <0x0 0x18000000 0x0 0x1000 0x0 0x18001000 0x0 0x1000 0x0 0x18050000 0x0 0x1000 0x0 0x18060000 0x0 0x1000 0x0 0x18800000 0x0 0x1000 0x0 0x18812000 0x0 0x1000 0x0 0x10001000 0x0 0x1000>;
+		interrupts = <0x00 0x178 0x04 0x00 0x179 0x04>;
+		phandle = <0x37>;
+	};

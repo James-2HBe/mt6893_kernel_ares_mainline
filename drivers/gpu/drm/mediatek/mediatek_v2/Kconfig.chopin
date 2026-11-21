@@ -1,8 +1,0 @@
-config DRM_MEDIATEK_V2
-	bool "chopin: vendor mediatek_v2 display stack (MT6895-Mainline approach)"
-	depends on DRM && DRM_MEDIATEK
-	help
-	  Build the vendor mediatek_v2 display driver imported for the chopin
-	  port, the way MT6895-Mainline/linux does for xaga.  When enabled, the
-	  upstream mediatek-drm object list must not be built (see the Makefile
-	  gate), because both claim the same DT nodes.

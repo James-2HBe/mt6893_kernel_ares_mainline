@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# 追加到 arch/arm64/configs/defconfig（或 ares_defconfig）的驱动开关。
+# 与上层交付的 ares_defconfig.fragment（A 类主线驱动开关）并用，互不重叠。
+# 追加后执行：make ARCH=arm64 defconfig && make ARCH=arm64 modules
+#
+# 前提：CONFIG_INPUT_FF_MEMLESS / CONFIG_REGMAP_I2C / CONFIG_GPIOLIB /
+#       CONFIG_REGULATOR 需为 y 或 m（HAPTIC_AW8697 会 select FF_MEMLESS）。
+
+CONFIG_REGULATOR_WL2866D=m
+CONFIG_LEDS_AW2028=m
+CONFIG_HAPTIC_AW8697=m
+CONFIG_KEYBOARD_ARES_GAMEKEY=m
+CONFIG_ET7480_AUDIOSWITCH=m
+CONFIG_NFC_ST21NFC_ARES=m
+CONFIG_CHARGER_XMUSB350=m
+CONFIG_SPI_GF3658=m
+CONFIG_TOUCHSCREEN_GT9886=m
+
+# 第 1 轮 GT9886 是「框架骨架、帧协议未实现」故默认关闭；
+# 第 2 轮已按官方真实协议实现，现默认打开。
+# 触控 IC 以官方 defconfig 为准 = GT9886/GT9896S；若真机为 FT3658U
+# （lineage 板级 dts 的 focaltech,fts），关闭本项并另配触控驱动。

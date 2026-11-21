@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# 各子系统 Makefile 追加规则（由 apply.sh 自动完成，也可手工粘贴）。
+# 源文件统一来自 port/*.c，复制到下列目录后按此表追加。
+
+drivers/regulator/Makefile:
+	obj-$(CONFIG_REGULATOR_WL2866D)		+= regulator-wl2866d.o
+
+drivers/leds/Makefile:
+	obj-$(CONFIG_LEDS_AW2028)		+= leds-aw2028.o
+
+drivers/input/misc/Makefile:
+	obj-$(CONFIG_HAPTIC_AW8697)		+= haptic-aw8697.o
+
+drivers/input/keyboard/Makefile:
+	obj-$(CONFIG_KEYBOARD_ARES_GAMEKEY)	+= input-gamekey.o
+
+drivers/input/touchscreen/Makefile:
+	obj-$(CONFIG_TOUCHSCREEN_GT9886)	+= touchscreen-gt9886.o
+
+drivers/power/supply/Makefile:
+	obj-$(CONFIG_CHARGER_XMUSB350)		+= xmusb350-charger.o
+
+drivers/misc/Makefile:
+	obj-$(CONFIG_ET7480_AUDIOSWITCH)	+= et7480-audioswitch.o
+	obj-$(CONFIG_NFC_ST21NFC_ARES)		+= st21nfc.o
+	obj-$(CONFIG_SPI_GF3658)		+= gf3658-spi.o
+
+# Kconfig：把 Kconfig.fragment 整体追加到 drivers/misc/Kconfig
+# defconfig：把 defconfig.additions 追加到 arch/arm64/configs/defconfig
+#            （或你自己的 ares_defconfig）

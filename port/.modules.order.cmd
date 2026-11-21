@@ -1,0 +1,1 @@
+savedcmd_modules.order := {   echo regulator-wl2866d.o;   echo leds-aw2028.o;   echo haptic-aw8697.o;   echo input-gamekey.o;   echo et7480-audioswitch.o;   echo st21nfc.o;   echo xmusb350-charger.o;   echo gf3658-spi.o;   echo touchscreen-gt9886.o; :; } > modules.order
