@@ -1,0 +1,38 @@
+#include <linux/module.h>
+#include <linux/export-internal.h>
+#include <linux/compiler.h>
+
+MODULE_INFO(name, KBUILD_MODNAME);
+
+__visible struct module __this_module
+__section(".gnu.linkonce.this_module") = {
+	.name = KBUILD_MODNAME,
+	.init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+	.exit = cleanup_module,
+#endif
+	.arch = MODULE_ARCH_INIT,
+};
+
+MODULE_INFO(intree, "Y");
+
+KSYMTAB_FUNC(rt5645_sel_asrc_clk_src, "");
+SYMBOL_FLAGS(rt5645_sel_asrc_clk_src, 0x01);
+KSYMTAB_FUNC(rt5645_set_jack_detect, "");
+SYMBOL_FLAGS(rt5645_set_jack_detect, 0x01);
+KSYMTAB_FUNC(rt5645_components, "");
+SYMBOL_FLAGS(rt5645_components, 0x01);
+
+MODULE_INFO(depends, "snd-soc-core,snd-soc-rl6231,snd-pcm");
+
+MODULE_ALIAS("i2c:rt5645");
+MODULE_ALIAS("i2c:rt5650");
+MODULE_ALIAS("of:N*T*Crealtek,rt5645");
+MODULE_ALIAS("of:N*T*Crealtek,rt5645C*");
+MODULE_ALIAS("of:N*T*Crealtek,rt5650");
+MODULE_ALIAS("of:N*T*Crealtek,rt5650C*");
+MODULE_ALIAS("acpi*:10EC3270:*");
+MODULE_ALIAS("acpi*:10EC5640:*");
+MODULE_ALIAS("acpi*:10EC5645:*");
+MODULE_ALIAS("acpi*:10EC5648:*");
+MODULE_ALIAS("acpi*:10EC5650:*");

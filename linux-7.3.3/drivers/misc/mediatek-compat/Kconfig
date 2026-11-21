@@ -1,0 +1,35 @@
+config MTK_COMPAT_FRAMEWORK_SYMBOLS
+	bool "MT6893 class-B framework symbol bridge (clk/iommu/devfreq)"
+	depends on OF
+	default y
+	help
+	  Provide function-level mainline-bridged implementations of the 4.14
+	  MTK private framework symbols (register_pg_callback, smi_reg_backup_sec,
+	  get_cur_vcore_opp, etc.) so ported drivers link without undefined
+	  symbols on Linux 7.3.3. Safe to leave enabled: all symbols are __weak
+	  and are automatically overridden by any real in-tree implementation.
+
+config MTK_COMPAT_PLATFORM_BRIDGE
+	bool "MT6893 platform/HW weak stub bridge"
+	depends on OF
+	default y
+	help
+	  __weak + EXPORT_SYMBOL_GPL safety stubs for 4.14 MTK platform/HW
+	  helpers that have no mainline equivalent (M4U/PMIC/IOMMU/SPM/etc.).
+	  Real platform implementations override these weak symbols.
+
+config MTK_COMPAT_PLATFORM_SYMBOLS
+	bool "MT6893 platform symbol resolution (aee_rr/buck_set_mode)"
+	depends on OF
+	default y
+	help
+	  Function-level port of aee_rr_rec_clk/aee_rr_curr_clk plus a safe
+	  buck_set_mode fallback. Symbols are __weak + EXPORT_SYMBOL_GPL.
+
+config MTK_PLATFORM_SYMBOLS_FORCE
+	bool "Force-build guarded platform symbols without ram_console"
+	depends on MTK_COMPAT_PLATFORM_SYMBOLS
+	default y
+	help
+	  Compile the aee_rr_rec_clk/aee_rr_curr_clk block even when
+	  CONFIG_MTK_RAM_CONSOLE is disabled, using the TU-local static store.

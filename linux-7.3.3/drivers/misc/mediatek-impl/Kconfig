@@ -1,0 +1,19 @@
+config MTK_ARES_PRIVATE_DRIVERS
+	bool "MT6893 Ares MTK private drivers (symbol-level port, 15 drivers)"
+	depends on OF
+	default y
+	help
+	  Port 15 MTK 4.14 private drivers (clk-mt6873-pg, emimpu, pseudo_m4u,
+	  ppm, spm, freqhopping, clkbuf, pmic/lbat, mtu3, etc.) into the kernel
+	  with 7.3.3 API adaptations. 32 symbols resolved via __weak bridge
+	  stubs that are auto-overridden by real in-tree platform code.
+
+config MTK_ARES_REAL_SUBSYS
+	bool "MT6893 Ares real MTK subsystem implementations (phase D)"
+	depends on MTK_ARES_PRIVATE_DRIVERS
+	default y
+	help
+	  Build real subsystem implementations ported from the 4.19 vendor tree
+	  (PPM profile/interface, SPM sysfs) to override the corresponding weak
+	  stubs. Code-level self-contained only; no real-hardware functionality
+	  is implied (mainline lacks the MT6893 SoC layer).
