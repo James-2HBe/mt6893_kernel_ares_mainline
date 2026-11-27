@@ -31,17 +31,32 @@ Mu-Silicium 原仓库支持 MT6735 / MT6768 / MT6789 三颗联发科 SoC，**没
 | tags / ramdisk | 0x47C80000 / 0x51100000 | 原厂 boot.img header |
 | 主存储 | **UFS**（非 eMMC） | ares dts `ufs_mphy@11fa0000` |
 
-## 编译
+## 如何应用与编译
+
+本交付包是**代码级自包含移植包**（27 个文件），需应用到官方 Mu-Silicium 仓库：
 
 ```bash
-cd Mu-Silicium
-# 首次需安装依赖 + 拉取子模块（约 5GB）：
+# 1) 克隆官方仓库（约 5GB，含子模块）
+git clone https://github.com/Project-Silicium/Mu-Silicium.git --recursive
+
+# 2) 应用本移植包（一键脚本）
+bash /workspace/mu-silicium-ares-port/apply_port.sh /path/to/Mu-Silicium
+
+# 3) 安装编译依赖 + 拉取子模块
+cd /path/to/Mu-Silicium
 ./setup_env.sh -p apt
-git submodule update --init --recursive
-# 编译 ares：
+
+# 4) 编译 ares
 python3 build_uefi.py -d ares
 # 产物：Mu-ares-0.img（UEFI FD 作为 kernel 打进 boot.img）
 ```
+
+> **GitHub**：移植包已推送到 `James-2HBe/mt6893_kernel_ares_mainline` 的新分支 **`ares-uefi-port`**（commit `2112a094`），位于 `mu-silicium/ares-port/` 子目录，不影响原有分支。
+
+### 本次验证状态
+
+- 已完成代码级移植：23 个必需文件齐全、7 个 FILE_GUID 唯一、DSC include 链完整、所有 INF 源文件引用存在、ares.toml 可解析、DTB magic 有效 —— **静态校验 12/12 通过**。
+- **未在本机完成实际 EDK2 编译**：当前环境网络持续超时（约 40KB/s 且频繁 connection reset），无法拉取编译所需的约 5GB 子模块（mu_basecore / mu_plus / mu_oem_sample / openssl / Silicium-ACPI / Device-Binaries）。编译步骤已备好，需在具备网络条件的环境执行。
 
 ## 已知限制（重要，务必阅读）
 
