@@ -1,0 +1,19 @@
+## @file
+#  MT6893 Package (Dimensity 1200) for ares UEFI port
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = MT6893Pkg
+  PACKAGE_GUID                   = A1000000-6893-4E11-9A31-6C1F4A200000
+  PACKAGE_VERSION                = 0.1
+
+[Includes]
+  Include
+  Include/Library
+
+[LibraryClasses]
+  PlatformUfsLib|Include/Library/PlatformUfsLib.h
+  UfsCalAdapterLib|Include/Library/UfsCalAdapterLib.h

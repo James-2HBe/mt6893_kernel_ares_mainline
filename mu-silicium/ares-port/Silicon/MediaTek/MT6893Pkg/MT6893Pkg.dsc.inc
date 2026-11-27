@@ -57,3 +57,9 @@
   ClockImplLib|MT6893Pkg/Library/ClockImplLib/ClockImplLib.inf
   PmicWrapperImplLib|MT6893Pkg/Library/PmicWrapperImplLib/PmicWrapperImplLib.inf
   MsdcImplLib|MT6893Pkg/Library/MsdcImplLib/MsdcImplLib.inf
+
+  #
+  # UFS (MT6893 main storage is UFS, not eMMC)
+  #
+  PlatformUfsLib|MT6893Pkg/Library/PlatformUfsLib/PlatformUfsLib.inf
+  UfsCalAdapterLib|MT6893Pkg/Library/UfsCalAdapterLib/UfsCalAdapterLib.inf

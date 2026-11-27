@@ -1,0 +1,28 @@
+## @file
+#  MT6893 UFS Platform Library INSTANCE
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformUfsLib
+  FILE_GUID                      = A1000010-6893-4E11-9A31-6C1F4A200010
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformUfsLib
+
+[Sources]
+  PlatformUfsLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  ArmPkg/ArmPkg.dec
+  MT6893Pkg/MT6893Pkg.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  DebugLib
+  IoLib
+  TimerLib
+  ArmSmcLib

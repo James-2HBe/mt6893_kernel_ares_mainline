@@ -1,0 +1,40 @@
+## @file
+#  MT6893 UFS Host Controller DXE driver (reused standard UFSHCI core)
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UfsDxe
+  FILE_GUID                      = A1000012-6893-4E11-9A31-6C1F4A200012
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = InitUfsDriver
+
+[Sources]
+  UfsDxe.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  MT6893Pkg/MT6893Pkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  PlatformUfsLib
+  UfsCalAdapterLib
+  DebugLib
+  DevicePathLib
+  IoLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  TimerLib
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+
+[Depex]
+  TRUE

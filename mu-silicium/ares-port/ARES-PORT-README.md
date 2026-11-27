@@ -53,14 +53,16 @@ python3 build_uefi.py -d ares
 
 > **GitHub**：移植包已推送到 `James-2HBe/mt6893_kernel_ares_mainline` 的新分支 **`ares-uefi-port`**（commit `2112a094`），位于 `mu-silicium/ares-port/` 子目录，不影响原有分支。
 
-### 本次验证状态
+### 本次验证状态（2026-11-27 更新）
 
-- 已完成代码级移植：23 个必需文件齐全、7 个 FILE_GUID 唯一、DSC include 链完整、所有 INF 源文件引用存在、ares.toml 可解析、DTB magic 有效 —— **静态校验 12/12 通过**。
-- **未在本机完成实际 EDK2 编译**：当前环境网络持续超时（约 40KB/s 且频繁 connection reset），无法拉取编译所需的约 5GB 子模块（mu_basecore / mu_plus / mu_oem_sample / openssl / Silicium-ACPI / Device-Binaries）。编译步骤已备好，需在具备网络条件的环境执行。
+- **已完成实际 EDK2 编译并通过**：`python3 build_uefi.py -d ares` → `PROGRESS - Success`，产出 `output/Mu-ares.img`（674KB）、`output/SILICIUM_UEFI.fd`（2MB）、`output/BUILD_REPORT.TXT`。
+- 源码通过 **gh-proxy.com** 加速拉取（主仓 67MB + 6 个子模块 + mu_nasm/basetools/onecrypto 外部依赖），解决了此前网络超时问题；子模块与外部依赖均已本地化布置。
+- boot.img 回读校验：`ANDROID!` / header v2 / page 2048 / kernel@0x40080000 / tags@0x47c80000 / ramdisk@0x51100000，kernel gzip 解压 = 2MB UEFI FD，与原厂布局一致。
+- **UFS 驱动已补齐并确认打包**：`BUILD_REPORT.TXT` 含 `UfsDxe` 模块（`0x000F6320`，SHA1 `0345e0b1...`），`UfsDxe.efi`(9KB) 已编入 FV。
 
 ## 已知限制（重要，务必阅读）
 
-1. **存储**：ares 主存储是 UFS，而 Mu-Silicium 的 MediaTek 后端只有 MSDC（eMMC/SD）驱动。因此 UEFI 可启动到图形/文本界面，但**从 UFS 加载 Windows/Linux 启动项需要额外的 UFS 驱动**，本次移植未包含。这是 ares 与 stone(MT6789，eMMC) 的本质差异。
+1. **存储（已补齐 UFS 驱动，待真机验证）**：ares 主存储是 UFS。本次通过复用仓库内 Samsung UfsDxe 的标准 UFSHCI 核心（UTP/UIC/Query/BlockIo 均为 JEDEC 标准）+ 为 MT6893 新写的板级库（`PlatformUfsLib` / `UfsCalAdapterLib`），补齐了 UFS 驱动并成功编译打包。寄存器基址（UFSHCI@0x11270000、MPHY@0x11fa0000）、2 lane、Gear4、SiP SMC(0x276) 均按原厂 4.19 / 主线 7.3.3 树核对。**编译通过 ≠ 真机点亮**：MTK UFS 的 PHY 校准实际由 ATF/bootsel 完成，UEFI 侧校准钩子为 no-op；真机若 UFS 未初始化需按 SiP 服务实际行为调整 `PlatformUfsLib.c`。
 
 2. **时钟表**：`MT6893Pkg/Library/ClockImplLib/ClockImplLib.c` 基于 MT6789 时钟表改造（MTK topckgen/APMIXED 布局通用）。MT6893 的 PLL 频率/偏移与 MT6789 不完全一致，真机若时钟异常需按 `clk-mt6893` 的 `mt6885-clk.h`（279 个 clock enum）进一步校正。
 

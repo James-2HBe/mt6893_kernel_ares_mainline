@@ -77,3 +77,8 @@
   #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
+
+  #
+  # Storage: UFS (ares uses UFS, not eMMC/SD)
+  #
+  MT6893Pkg/Drivers/UfsDxe/UfsDxe.inf
