@@ -1,0 +1,33 @@
+#
+# ares (Xiaomi Redmi K40 Gaming / POCO F3 GT, MT6893) UEFI FD Configs
+# 基于原厂 boot.img header v2 参数（stock-boot-original.img 解析值）
+#
+[uefi_fd]
+base = 0x40080000
+size = 0x200000
+
+#
+# Android Boot Image Kernel Configs
+# Mu-Silicium 把 UEFI FD 当作 kernel 打包，原厂 kernel 是 gzip 格式
+#
+[boot_image_kernel]
+kernel_compression = "gzip"
+append_dtb         = false
+
+#
+# Android Boot Image Configs
+# 参数取自原厂 ares boot.img header v2:
+#   kernel_addr=0x40080000 ramdisk_addr=0x51100000 tags_addr=0x47c80000
+#   page_size=2048, header_version=2
+# kernel_offset 按 MTK 惯例 0x00008000；ramdisk/second/tags 按原厂地址换算
+#
+[boot_image]
+base           = 0x40078000
+cmdline        = "bootopt=64S3,32N2,64N2 buildvariant=user console=tty0 console=ttyS0,921600n1 ignore_loglevel"
+dtb            = "Resources/DTBs/ares.dtb"
+dtb_offset     = 0x07C08000
+header_version = 2
+kernel_offset  = 0x00008000
+ramdisk_offset = 0x11088000
+second_offset  = 0xBFF88000
+tags_offset    = 0x07C08000
